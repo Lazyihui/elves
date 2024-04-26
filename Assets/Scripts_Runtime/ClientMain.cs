@@ -34,7 +34,7 @@ public class ClientMain : MonoBehaviour {
         var uIEvents = ctx.uiContext.uIEvents;
 
         uIEvents.Login_StartGameHandle = () => {
-            Debug.Log("开始游戏");
+            UIApp.Panel_Login_Close(ctx.uiContext);
         };
     }
 

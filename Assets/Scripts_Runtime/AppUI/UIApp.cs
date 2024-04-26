@@ -22,4 +22,11 @@ public static class UIApp {
         }
         panel.Show();
     }
+
+    public static void Panel_Login_Close(UIContext ctx) {
+        Panel_Login panel = ctx.Panel_Login;
+        if (panel != null) {
+            panel.Close();
+        }
+    }
 }
