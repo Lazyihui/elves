@@ -35,11 +35,16 @@ public class ClientMain : MonoBehaviour {
 
         uIEvents.Login_StartGameHandle = () => {
             UIApp.Panel_Login_Close(ctx.uiContext);
+            GameBusiness.Enter(ctx.gameContext);
         };
     }
 
     // Update is called once per frame
     void Update() {
+
+        float dt = Time.deltaTime;
+
+
 
     }
 

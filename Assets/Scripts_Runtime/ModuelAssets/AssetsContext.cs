@@ -7,12 +7,21 @@ public class AssetsContext {
 
     public Dictionary<string, GameObject> panels;
 
+    public Dictionary<string, GameObject> entities;
+
     public AsyncOperationHandle panelsPtr;
+
+    public AsyncOperationHandle entityPtr;
 
     public AssetsContext() {
         panels = new Dictionary<string, GameObject>();
+        entities = new Dictionary<string, GameObject>();
     }
-    public bool TryGetPanel( string name, out GameObject panel) {
+    public bool TryGetPanel(string name, out GameObject panel) {
         return panels.TryGetValue(name, out panel);
     }
+    public bool TryGetEntity(string name, out GameObject entity) {
+        return entities.TryGetValue(name, out entity);
+    }
+
 }
