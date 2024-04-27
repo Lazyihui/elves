@@ -39,15 +39,35 @@ public class ClientMain : MonoBehaviour {
         };
     }
 
-    // Update is called once per frame
+    float restDT = 0;
     void Update() {
 
         float dt = Time.deltaTime;
+        // // === Phase : Input===
+        ModuleInput input = ctx.moduleInput;
+        input.Process();
 
+        //=== Phase : Login===
+        float fixedDT = Time.fixedDeltaTime; // 0.02
+        restDT += dt;// 0.0083 (0.0000000001, 10)
+        if (restDT >= fixedDT) {
+            while (restDT >= fixedDT) {
+                restDT -= fixedDT;
+                FixedTick(fixedDT);
+            }
+        } else {
+            FixedTick(restDT);
+            restDT = 0;
+        }
 
 
     }
-
+    void FixedTick(float dt) {
+        // === Phase:Logic===
+        GameBusiness.FixedTick(ctx.gameContext, dt);
+        // === phade: Simulate===
+        Physics.Simulate(dt);
+    }
 
     void OnApplicationQuit() {
         TearDown();

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class ModuleInput {
 
-    Vector2 moveAxis;
+    public Vector2 moveAxis;
 
     public bool isJump;
 
@@ -17,6 +17,7 @@ public class ModuleInput {
     }
 
     public void Process() {
+
 
         Vector2 moveAxis = Vector2.zero;
         if (Input.GetKey(KeyCode.W)) {
