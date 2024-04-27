@@ -13,6 +13,8 @@ public static class RoleDomain {
         RoleEntity role = GameObject.Instantiate(prefab).GetComponent<RoleEntity>();
         role.Ctor();
         role.id = ID;//先这样写
+        role.transform.position = pos;
+        role.moveSpeed = 10;
 
         ctx.roleRespository.Add(role);
         ctx.roleid = role.id;

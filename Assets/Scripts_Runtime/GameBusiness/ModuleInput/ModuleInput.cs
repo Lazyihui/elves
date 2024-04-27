@@ -16,7 +16,7 @@ public class ModuleInput {
         isAttack = false;
     }
 
-    public void Process() {
+    public void ProcessMoveAxis() {
 
 
         Vector2 moveAxis = Vector2.zero;

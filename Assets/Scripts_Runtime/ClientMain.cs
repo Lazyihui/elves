@@ -45,7 +45,7 @@ public class ClientMain : MonoBehaviour {
         float dt = Time.deltaTime;
         // // === Phase : Input===
         ModuleInput input = ctx.moduleInput;
-        input.Process();
+        input.ProcessMoveAxis();
 
         //=== Phase : Login===
         float fixedDT = Time.fixedDeltaTime; // 0.02
