@@ -5,6 +5,9 @@ using UnityEngine.UI;
 public class RoleEntity : MonoBehaviour {
 
     [SerializeField] Rigidbody2D rb;
+
+    [SerializeField] public Animator animator;
+
     public int id;
     public float moveSpeed;
     public float hp;
