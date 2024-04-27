@@ -7,11 +7,17 @@ public static class RoleController {
     public static void Tick(RoleEntity role, Vector2 moveAxis, float dt) {
         RoleFSMStatus status = role.fsmStatus;
         if (status == RoleFSMStatus.Idle) {
+
             Idle_Status(role, moveAxis, dt);
+
         } else if (status == RoleFSMStatus.Die) {
+
             Die_State(role, dt);
-        } else if(status == RoleFSMStatus.Run) {
-            Run_Status(role, moveAxis, dt);
+
+        } else if (status == RoleFSMStatus.Run) {
+
+            // Run_Status(role, moveAxis, dt);
+
         } else {
             Debug.LogError("未知状态");
         }
@@ -22,18 +28,18 @@ public static class RoleController {
         //  任何状态都是会执行的逻辑
         // Role.CheckSpike();
         // 技能cd/buff时间
-        float x = role.transform.position.x;
-        if (x > 10) {
-            if (role.fsmStatus != RoleFSMStatus.Die) {
-                role.fsmStatus = RoleFSMStatus.Die;
-            }
-        }
+        // float x = role.transform.position.x;
+        // if (x > 10) {
+        //     if (role.fsmStatus != RoleFSMStatus.Die) {
+        //         role.fsmStatus = RoleFSMStatus.Die;
+        //     }
+        // }
     }
 
     static void Idle_Status(RoleEntity role, Vector2 moveAxis, float dt) {
         if (role.idle_isEntering) {
             role.idle_isEntering = false;
-            role.animator.Play("Animation_Role1_Idle");
+            role.animator.Play("idle1");
             Debug.Log("Idle");
 
         }
@@ -41,14 +47,15 @@ public static class RoleController {
 
         role.Move(moveAxis, dt);
         if (moveAxis != Vector2.zero) {
-            role.fsmStatus = RoleFSMStatus.Run;
+            role.animator.Play("walk");
+        } else {
+            role.animator.Play("idle");
         }
     }
 
     static void Run_Status(RoleEntity role, Vector2 moveAxis, float dt) {
         if (role.run_isEntering) {
             role.run_isEntering = false;
-            role.animator.Play("Animation_Role1_Run");
             Debug.Log("Run");
         }
 
