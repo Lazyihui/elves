@@ -1,6 +1,6 @@
 public enum RoleFSMStatus {
     None,
     Idle,
-    Move,
+    Run,
     Die,
 }

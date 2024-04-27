@@ -74,12 +74,11 @@ public class ClientMain : MonoBehaviour {
         }
 
 
-
-
     }
     void FixedTick(float dt) {
         // === Phase:Logic===
         GameBusiness.FixedTick(ctx.gameContext, dt);
+    
         // === phade: Simulate===
         Physics.Simulate(dt);
     }

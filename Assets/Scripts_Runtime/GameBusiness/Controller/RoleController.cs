@@ -7,12 +7,13 @@ public static class RoleController {
     public static void Tick(RoleEntity role, Vector2 moveAxis, float dt) {
         RoleFSMStatus status = role.fsmStatus;
         if (status == RoleFSMStatus.Idle) {
-
             Idle_Status(role, moveAxis, dt);
         } else if (status == RoleFSMStatus.Die) {
             Die_State(role, dt);
+        } else if(status == RoleFSMStatus.Run) {
+            Run_Status(role, moveAxis, dt);
         } else {
-            Debug.Log("Err");
+            Debug.LogError("未知状态");
         }
         Any_State(role, dt);
     }
@@ -39,6 +40,22 @@ public static class RoleController {
 
 
         role.Move(moveAxis, dt);
+        if (moveAxis != Vector2.zero) {
+            role.fsmStatus = RoleFSMStatus.Run;
+        }
+    }
+
+    static void Run_Status(RoleEntity role, Vector2 moveAxis, float dt) {
+        if (role.run_isEntering) {
+            role.run_isEntering = false;
+            role.animator.Play("Animation_Role1_Run");
+            Debug.Log("Run");
+        }
+
+        role.Move(moveAxis, dt);
+        if (moveAxis == Vector2.zero) {
+            role.Enter_Idle();
+        }
     }
 
     static void Die_State(RoleEntity role, float dt) {

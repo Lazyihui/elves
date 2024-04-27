@@ -16,7 +16,9 @@ public static class GameBusiness {
             Debug.LogError("role ==null");
             return;
         }
-        role.Move(input.moveAxis, dt);
+        RoleController.Tick(role, input.moveAxis, dt);
+
+        // role.Move(input.moveAxis, dt);
 
     }
 

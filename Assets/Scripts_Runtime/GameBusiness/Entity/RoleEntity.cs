@@ -13,6 +13,8 @@ public class RoleEntity : MonoBehaviour {
     public bool idle_isEntering;
 
     public bool die_isEntering;
+    public bool run_isEntering;
+
     public float die_maintainTime;
 
     public int id;
@@ -43,6 +45,11 @@ public class RoleEntity : MonoBehaviour {
         fsmStatus = RoleFSMStatus.Die;
         die_isEntering = true;
         this.die_maintainTime = die_maintainTime;
+    }
+
+    public void Enter_Run() {
+        fsmStatus = RoleFSMStatus.Run;
+        run_isEntering = true;
     }
 
 }
