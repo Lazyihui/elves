@@ -8,7 +8,6 @@ public class RoleEntity : MonoBehaviour {
 
     [SerializeField] public Animator animator;
 
-    [SerializeField] Transform body;
 
     public RoleFSMStatus fsmStatus;
 
@@ -37,9 +36,9 @@ public class RoleEntity : MonoBehaviour {
         velo.x = MoveAxis.x * moveSpeed;
         rb.velocity = velo;
         if (MoveAxis.x > 0) {
-            body.transform.localScale = new Vector3(1, 1, 1);
+            this.transform.localScale = new Vector3(1, 1, 1);
         } else if (MoveAxis.x < 0) {
-            body.transform.localScale = new Vector3(-1, 1, 1);
+            this.transform.localScale = new Vector3(-1, 1, 1);
         }
     }
 
