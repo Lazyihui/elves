@@ -13,11 +13,11 @@ public static class GameBusiness {
         ModuleInput input = ctx.moduleInput;
         bool hasRole = ctx.roleRespository.TryGet(ctx.roleid, out RoleEntity role);
         if (!hasRole) {
-            Debug.LogError("role ==null");
+            // Debug.LogError("role ==null");
             return;
         }
         Debug.Log(input.moveAxis);
-        // role.Move(input.moveAxis, dt);
+        role.Move(input.moveAxis, dt);
 
     }
 

@@ -10,21 +10,18 @@ public class GameContext {
 
     public AssetsContext assetsContext;
 
-    public ModuleInput input;
-
     public RoleRespository roleRespository;
 
     public int roleid;
 
 
     public GameContext() {
-        moduleInput = new ModuleInput();
         roleRespository = new RoleRespository();
         roleid = 0;
     }
 
-    public void Inject(AssetsContext assetsContext,ModuleInput input) {
+    public void Inject(AssetsContext assetsContext,ModuleInput moduleInput) {
         this.assetsContext = assetsContext;
-        this.input = input;
+        this.moduleInput = moduleInput;
     }
 }
