@@ -263,9 +263,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 2840506771681030436}
   animator: {fileID: 5651686309476424692}
+  body: {fileID: 3499727816072388592}
   fsmStatus: 0
   idle_isEntering: 0
   die_isEntering: 0
+  run_isEntering: 0
   die_maintainTime: 0
   id: 0
   moveSpeed: 0

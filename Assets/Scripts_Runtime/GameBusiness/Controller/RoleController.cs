@@ -39,7 +39,7 @@ public static class RoleController {
     static void Idle_Status(RoleEntity role, Vector2 moveAxis, float dt) {
         if (role.idle_isEntering) {
             role.idle_isEntering = false;
-            role.animator.Play("idle1");
+            role.animator.Play("idle");
             Debug.Log("Idle");
 
         }

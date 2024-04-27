@@ -8,6 +8,8 @@ public class RoleEntity : MonoBehaviour {
 
     [SerializeField] public Animator animator;
 
+    [SerializeField] Transform body;
+
     public RoleFSMStatus fsmStatus;
 
     public bool idle_isEntering;
@@ -28,13 +30,20 @@ public class RoleEntity : MonoBehaviour {
     public void Ctor() { }
 
     public void Move(Vector2 MoveAxis, float dt) {
-        Move(MoveAxis, 10, dt);
+        Move(MoveAxis, this.moveSpeed, dt);
     }
     public void Move(Vector2 MoveAxis, float moveSpeed, float dt) {
         var velo = rb.velocity;
         velo.x = MoveAxis.x * moveSpeed;
         rb.velocity = velo;
+        if (MoveAxis.x > 0) {
+            body.transform.localScale = new Vector3(1, 1, 1);
+        } else if (MoveAxis.x < 0) {
+            body.transform.localScale = new Vector3(-1, 1, 1);
+        }
     }
+
+
 
     public void Enter_Idle() {
         fsmStatus = RoleFSMStatus.Idle;
