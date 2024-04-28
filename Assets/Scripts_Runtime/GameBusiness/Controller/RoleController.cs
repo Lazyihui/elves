@@ -4,11 +4,11 @@ using UnityEngine;
 public static class RoleController {
 
 
-    public static void Tick(RoleEntity role, Vector2 moveAxis, float dt) {
+    public static void Tick(GameContext ctx, RoleEntity role, Vector2 moveAxis, float dt) {
         RoleFSMStatus status = role.fsmStatus;
         if (status == RoleFSMStatus.Idle) {
 
-            Idle_Status(role, moveAxis, dt);
+            Idle_Status(ctx, role, moveAxis, dt);
 
         } else if (status == RoleFSMStatus.Die) {
 
@@ -36,7 +36,8 @@ public static class RoleController {
         // }
     }
 
-    static void Idle_Status(RoleEntity role, Vector2 moveAxis, float dt) {
+    static void Idle_Status(GameContext ctx, RoleEntity role, Vector2 moveAxis, float dt) {
+        ModuleInput moduleInput = ctx.moduleInput;
         if (role.idle_isEntering) {
             role.idle_isEntering = false;
             role.animator.Play("idle");
@@ -51,6 +52,9 @@ public static class RoleController {
         } else {
             role.animator.Play("idle");
         }
+
+        role.Jump(moduleInput.isJump);
+
     }
 
     static void Run_Status(RoleEntity role, Vector2 moveAxis, float dt) {

@@ -20,7 +20,18 @@ public static class RoleDomain {
         ctx.roleid = role.id;
 
 
+        role.OnCollisionEnterHandle = OnCollisionEnter;
+
+
         return role;
     }
+
+    static void OnCollisionEnter(RoleEntity role, Collision other) {
+        Debug.Log("OnCollisionEnter");
+        if (other.gameObject.CompareTag("Ground")) {
+            role.SetGround(true);
+        }
+    }
+
 
 }

@@ -7,6 +7,10 @@ public class RoleEntity : MonoBehaviour {
     [SerializeField] Rigidbody2D rb;
 
     [SerializeField] public Animator animator;
+    // 委托
+    public Action<RoleEntity, Collision> OnCollisionEnterHandle;
+
+    public Action<RoleEntity, Collider> OnTriggerEnterHandle;
 
 
     public RoleFSMStatus fsmStatus;
@@ -15,6 +19,8 @@ public class RoleEntity : MonoBehaviour {
 
     public bool die_isEntering;
     public bool run_isEntering;
+    // 跳跃
+    public bool isGrounded;
 
     public float die_maintainTime;
 
@@ -42,6 +48,23 @@ public class RoleEntity : MonoBehaviour {
         }
     }
 
+    public void Jump(bool isJumpingKeyDown) {
+        if (isJumpingKeyDown) {
+            Debug.Log(isGrounded);
+        }
+        if (isJumpingKeyDown) {
+            Debug.Log("Jumping");
+            Vector2 velo = rb.velocity;
+            velo.y = 5;
+            rb.velocity = velo;
+            isGrounded = false;
+        }
+    }
+    public void SetGround(bool isGround) {
+        Debug.Log("SetGround");
+        this.isGrounded = isGround;
+    }
+
 
 
     public void Enter_Idle() {
@@ -58,6 +81,22 @@ public class RoleEntity : MonoBehaviour {
     public void Enter_Run() {
         fsmStatus = RoleFSMStatus.Run;
         run_isEntering = true;
+    }
+
+    void OnCollisionEnter(Collision other) {
+        OnCollisionEnterHandle.Invoke(this, other);
+    }
+    void OnCollisionStay(Collision other) {
+    }
+    void OnCollisionExit(Collision other) {
+    }
+
+    void OnTriggerEnter(Collider other) {
+        OnTriggerEnterHandle.Invoke(this, other);
+    }
+    void OnTriggerStay(Collider other) {
+    }
+    void OnTriggerExit(Collider other) {
     }
 
 }

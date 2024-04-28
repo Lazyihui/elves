@@ -31,5 +31,9 @@ public class ModuleInput {
             moveAxis.x = 1;
         }
         this.moveAxis = moveAxis;
+        // 跳跃
+        this.isJump = Input.GetKeyDown(KeyCode.Space);
+        // 攻击
+        this.isAttack = Input.GetKeyDown(KeyCode.J);
     }
 }

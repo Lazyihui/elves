@@ -16,10 +16,28 @@ public static class GameBusiness {
             Debug.LogError("role ==null");
             return;
         }
-        RoleController.Tick(role, input.moveAxis, dt);
+        RoleController.Tick(ctx, role, input.moveAxis, dt);
+
+        // CheckGround(role);
+
 
         // role.Move(input.moveAxis, dt);
 
     }
+    // static void CheckGround(RoleEntity role) {
+    //     RaycastHit[] hits = Physics.RaycastAll(role.transform.position + Vector3.up, Vector3.down, 5.05f);
+    //     // 画射线
+    //     Debug.DrawRay(role.transform.position + Vector3.up, Vector3.down*5.05f, Color.red);
+    //     if (hits != null) {
+    //         for (int i = 0; i < hits.Length; i++) {
+    //             var hit = hits[i];
+    //             if (hit.collider.CompareTag("Ground")) {
+    //                 Debug.Log("Ground");
+    //                 role.SetGround(true);
+    //                 break;
+    //             }
+    //         }
+    //     }
+    // }
 
 }
