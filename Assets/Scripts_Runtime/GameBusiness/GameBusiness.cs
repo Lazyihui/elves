@@ -18,6 +18,20 @@ public static class GameBusiness {
         }
         RoleController.Tick(ctx, role, input.moveAxis, dt);
 
+        RaycastHit2D[] hits = Physics2D.RaycastAll(role.transform.position, Vector2.down, 1.02f);
+        Debug.DrawRay(role.transform.position, Vector2.down * 1.05f, Color.red);
+        // 画射线
+        if (hits != null) {
+            Debug.Log(hits.Length);
+            for (int i = 0; i < hits.Length; i++) {
+                var hit = hits[i];
+
+                if (hit.collider.CompareTag("Ground")) {
+                    role.SetGround(true);
+                    break;
+                }
+            }
+        }
         // CheckGround(role);
 
 

@@ -50,8 +50,9 @@ public class RoleEntity : MonoBehaviour {
 
     public void Jump(bool isJumpingKeyDown) {
         if (isJumpingKeyDown) {
+            Debug.Log(isGrounded);
         }
-        if (isJumpingKeyDown) {
+        if (isJumpingKeyDown&&isGrounded) {
             Vector2 velo = rb.velocity;
             velo.y = 5;
             rb.velocity = velo;
