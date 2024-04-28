@@ -50,10 +50,8 @@ public class RoleEntity : MonoBehaviour {
 
     public void Jump(bool isJumpingKeyDown) {
         if (isJumpingKeyDown) {
-            Debug.Log(isGrounded);
         }
         if (isJumpingKeyDown) {
-            Debug.Log("Jumping");
             Vector2 velo = rb.velocity;
             velo.y = 5;
             rb.velocity = velo;
@@ -65,7 +63,7 @@ public class RoleEntity : MonoBehaviour {
         this.isGrounded = isGround;
     }
 
-
+    // 和地面的检测
 
     public void Enter_Idle() {
         fsmStatus = RoleFSMStatus.Idle;
