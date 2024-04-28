@@ -41,8 +41,6 @@ public static class RoleController {
         if (role.idle_isEntering) {
             role.idle_isEntering = false;
             role.animator.Play("idle");
-            Debug.Log("Idle");
-
         }
 
 

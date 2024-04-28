@@ -16,27 +16,32 @@ public static class GameBusiness {
             Debug.LogError("role ==null");
             return;
         }
+
+
         RoleController.Tick(ctx, role, input.moveAxis, dt);
 
-        RaycastHit2D[] hits = Physics2D.RaycastAll(role.transform.position, Vector2.down, 1.02f);
-        Debug.DrawRay(role.transform.position, Vector2.down * 1.05f, Color.red);
-        // 画射线
-        if (hits != null) {
-            Debug.Log(hits.Length);
-            for (int i = 0; i < hits.Length; i++) {
-                var hit = hits[i];
-
-                if (hit.collider.CompareTag("Ground")) {
-                    role.SetGround(true);
-                    break;
-                }
-            }
-        }
+        CheckGround(role);
         // CheckGround(role);
 
 
         // role.Move(input.moveAxis, dt);
 
+    }
+
+    static void CheckGround(RoleEntity role) {
+        RaycastHit2D[] hits = Physics2D.RaycastAll(role.transform.position, Vector2.down, 0.6f);
+        Debug.DrawRay(role.transform.position, Vector2.down * 0.6f, Color.red);
+        // 画射线
+        if (hits != null) {
+            for (int i = 0; i < hits.Length; i++) {
+                var hit = hits[i];
+                if (hit.collider.CompareTag("Ground")) {
+
+                    role.SetGround(true);
+                    break;
+                }
+            }
+        }
     }
     // static void CheckGround(RoleEntity role) {
     //     RaycastHit[] hits = Physics.RaycastAll(role.transform.position + Vector3.up, Vector3.down, 5.05f);

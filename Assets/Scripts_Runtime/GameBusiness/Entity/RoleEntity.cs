@@ -49,9 +49,6 @@ public class RoleEntity : MonoBehaviour {
     }
 
     public void Jump(bool isJumpingKeyDown) {
-        if (isJumpingKeyDown) {
-            Debug.Log(isGrounded);
-        }
         if (isJumpingKeyDown&&isGrounded) {
             Vector2 velo = rb.velocity;
             velo.y = 5;
@@ -60,7 +57,6 @@ public class RoleEntity : MonoBehaviour {
         }
     }
     public void SetGround(bool isGround) {
-        Debug.Log("SetGround");
         this.isGrounded = isGround;
     }
 
