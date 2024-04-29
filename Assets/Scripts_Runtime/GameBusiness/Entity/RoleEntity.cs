@@ -8,9 +8,9 @@ public class RoleEntity : MonoBehaviour {
 
     [SerializeField] public Animator animator;
     // 委托
-    public Action<RoleEntity, Collision> OnCollisionEnterHandle;
+    public Action<RoleEntity, Collision2D> OnCollisionEnterHandle;
 
-    public Action<RoleEntity, Collider> OnTriggerEnterHandle;
+    public Action<RoleEntity, Collider2D> OnTriggerEnterHandle;
 
 
     public RoleFSMStatus fsmStatus;
@@ -77,21 +77,21 @@ public class RoleEntity : MonoBehaviour {
         fsmStatus = RoleFSMStatus.Run;
         run_isEntering = true;
     }
-
-    void OnCollisionEnter(Collision other) {
+// 赢碰撞F
+    void OnCollisionEnter2D(Collision2D other) {
         OnCollisionEnterHandle.Invoke(this, other);
     }
-    void OnCollisionStay(Collision other) {
+    void OnCollisionStay2D(Collision2D other) {
     }
-    void OnCollisionExit(Collision other) {
+    void OnCollisionExit2D(Collision2D other) {
     }
 
-    void OnTriggerEnter(Collider other) {
+    void OnTriggerEnter2D(Collider2D other) {
         OnTriggerEnterHandle.Invoke(this, other);
     }
-    void OnTriggerStay(Collider other) {
+    void OnTriggerStay2D(Collider2D other) {
     }
-    void OnTriggerExit(Collider other) {
+    void OnTriggerExit2D(Collider2D other) {
     }
 
 }

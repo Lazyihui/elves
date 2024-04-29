@@ -20,7 +20,7 @@ public static class GameBusiness {
 
         RoleController.Tick(ctx, role, input.moveAxis, dt);
 
-        CheckGround(role);
+        // CheckGround(role);
         // CheckGround(role);
 
 
