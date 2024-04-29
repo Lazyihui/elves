@@ -12,12 +12,18 @@ public class GameContext {
 
     public RoleRespository roleRespository;
 
-    public int roleid;
+    public BookRepository bookRepository;
+
+    public int roleID;
+
+    public int bookID;
 
 
     public GameContext() {
         roleRespository = new RoleRespository();
-        roleid = 0;
+        bookRepository = new BookRepository();
+        roleID = 0;
+        bookID = 0;
     }
 
     public void Inject(AssetsContext assetsContext,ModuleInput moduleInput) {

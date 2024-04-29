@@ -17,7 +17,7 @@ public static class RoleDomain {
         role.moveSpeed = 2;
         role.Enter_Idle();
         ctx.roleRespository.Add(role);
-        ctx.roleid = role.id;
+        ctx.roleID = role.id;
 
 
         role.OnCollisionEnterHandle = OnCollisionEnter;

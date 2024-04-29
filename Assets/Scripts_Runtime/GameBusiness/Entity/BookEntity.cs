@@ -2,7 +2,11 @@ using System;
 using UnityEngine;
 
 public class BookEntity : MonoBehaviour {
-    int id;
+
+    public int typeID;
+
+    public int id;
+
 
     public BookEntity() {
 
