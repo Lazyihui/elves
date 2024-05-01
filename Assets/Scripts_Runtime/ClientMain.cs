@@ -23,6 +23,7 @@ public class ClientMain : MonoBehaviour {
 
         // ==== Load ====
         ModuleAssets.Load(ctx.assetsContext);
+        TemplateInfras.Load(ctx.templateContext);
         // ==== Binding ====
         Binding();
         // ==== Init ====
@@ -96,5 +97,6 @@ public class ClientMain : MonoBehaviour {
         }
         isTearDown = true;
         ModuleAssets.Unload(ctx.assetsContext);
+        TemplateInfras.Unload(ctx.templateContext);
     }
 }

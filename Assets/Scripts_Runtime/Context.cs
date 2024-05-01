@@ -10,7 +10,8 @@ public class Context {
     public ModuleInput moduleInput;
 
     public GameFSMStatus status;
-    public int a;
+ 
+    public TemplateContext templateContext;
 
 
     public Context() {
@@ -18,11 +19,12 @@ public class Context {
         assetsContext = new AssetsContext();
         gameContext = new GameContext();
         moduleInput = new ModuleInput();
+        templateContext = new TemplateContext();
 
     }
     public void Inject(Canvas screenCanvas) {
         uiContext.Inject(screenCanvas, assetsContext);
-        gameContext.Inject(assetsContext, moduleInput);
+        gameContext.Inject(assetsContext, moduleInput, templateContext);
     }
 }
 

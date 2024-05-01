@@ -14,6 +14,7 @@ public class GameContext {
 
     public BookRepository bookRepository;
 
+    public TemplateContext templateContext;
     public int roleID;
 
     public int bookID;
@@ -26,8 +27,9 @@ public class GameContext {
         bookID = 0;
     }
 
-    public void Inject(AssetsContext assetsContext,ModuleInput moduleInput) {
+    public void Inject(AssetsContext assetsContext,ModuleInput moduleInput,TemplateContext templateContext) {
         this.assetsContext = assetsContext;
         this.moduleInput = moduleInput;
+        this.templateContext = templateContext;
     }
 }

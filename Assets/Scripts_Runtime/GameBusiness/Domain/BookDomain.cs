@@ -2,19 +2,20 @@ using System;
 using UnityEngine;
 public static class BookDomain {
 
-    public static BookEntity Spawn(GameContext ctx, int typeID, Vector2 pos) {
+    public static BookEntity Spawn(GameContext ctx, int typeID) {
 
-        bool has = ctx.assetsContext.TryGetEntity("Entity_Book", out GameObject prefab);
+        bool has = ctx.templateContext.books.TryGetValue(typeID, out BookTM tm);
+
         if (!has) {
-            Debug.LogError("Entity_Book ==null");
-            return null;
+            Debug.LogError("没找到typeID对应的模板" + typeID);
         }
-
+        ctx.assetsContext.TryGetEntity("Entity_Book", out GameObject prefab);
         BookEntity book = GameObject.Instantiate(prefab).GetComponent<BookEntity>();
+
         book.Ctor();
         book.id = ctx.bookID++;
-        book.typeID = typeID;
-        book.transform.position = pos;
+        book.typeID = tm.typeID;
+        book.transform.position = tm.pos;
         ctx.bookRepository.Add(book);
         return book;
     }

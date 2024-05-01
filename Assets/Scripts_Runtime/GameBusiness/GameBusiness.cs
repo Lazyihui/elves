@@ -8,19 +8,19 @@ public static class GameBusiness {
         RoleDomain.Spawn(ctx, 1, new Vector2(-4, 0));
 
         // Land
-        BookDomain.Spawn(ctx, 1, new Vector2(-9.5f, -5));
-        BookDomain.Spawn(ctx, 1, new Vector2(-8.5f, -5));
-        BookDomain.Spawn(ctx, 1, new Vector2(-7.5f, -5));
-        BookDomain.Spawn(ctx, 1, new Vector2(-6.5f, -5));
-        BookDomain.Spawn(ctx, 1, new Vector2(-5.5f, -5));
-        BookDomain.Spawn(ctx, 1, new Vector2(-4.5f, -5));
-        BookDomain.Spawn(ctx, 1, new Vector2(-3.5f, -5));
-        BookDomain.Spawn(ctx, 1, new Vector2(-2.5f, -5));
-        BookDomain.Spawn(ctx, 1, new Vector2(-1.5f, -5));
+        BookDomain.Spawn(ctx, 1);
+        // BookDomain.Spawn(ctx, 1, new Vector2(-8.5f, -5));
+        // BookDomain.Spawn(ctx, 1, new Vector2(-7.5f, -5));
+        // BookDomain.Spawn(ctx, 1, new Vector2(-6.5f, -5));
+        // BookDomain.Spawn(ctx, 1, new Vector2(-5.5f, -5));
+        // BookDomain.Spawn(ctx, 1, new Vector2(-4.5f, -5));
+        // BookDomain.Spawn(ctx, 1, new Vector2(-3.5f, -5));
+        // BookDomain.Spawn(ctx, 1, new Vector2(-2.5f, -5));
+        // BookDomain.Spawn(ctx, 1, new Vector2(-1.5f, -5));
 
-        BookDomain.Spawn(ctx, 1, new Vector2(1.5f, -5));
-        BookDomain.Spawn(ctx, 1, new Vector2(2.5f, -5));
-        BookDomain.Spawn(ctx, 1, new Vector2(3.5f, -5));
+        // BookDomain.Spawn(ctx, 1, new Vector2(1.5f, -5));
+        // BookDomain.Spawn(ctx, 1, new Vector2(2.5f, -5));
+        // BookDomain.Spawn(ctx, 1, new Vector2(3.5f, -5));
 
 
     }
