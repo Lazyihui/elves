@@ -4,8 +4,24 @@ using UnityEngine;
 public static class GameBusiness {
 
     public static void Enter(GameContext ctx) {
-        RoleDomain.Spawn(ctx, 1, new Vector2(0, 0));
-        BookDomain.Spawn(ctx, 1, new Vector2(0, -4));
+        // Role
+        RoleDomain.Spawn(ctx, 1, new Vector2(-4, 0));
+
+        // Land
+        BookDomain.Spawn(ctx, 1, new Vector2(-9.5f, -5));
+        BookDomain.Spawn(ctx, 1, new Vector2(-8.5f, -5));
+        BookDomain.Spawn(ctx, 1, new Vector2(-7.5f, -5));
+        BookDomain.Spawn(ctx, 1, new Vector2(-6.5f, -5));
+        BookDomain.Spawn(ctx, 1, new Vector2(-5.5f, -5));
+        BookDomain.Spawn(ctx, 1, new Vector2(-4.5f, -5));
+        BookDomain.Spawn(ctx, 1, new Vector2(-3.5f, -5));
+        BookDomain.Spawn(ctx, 1, new Vector2(-2.5f, -5));
+        BookDomain.Spawn(ctx, 1, new Vector2(-1.5f, -5));
+
+        BookDomain.Spawn(ctx, 1, new Vector2(1.5f, -5));
+        BookDomain.Spawn(ctx, 1, new Vector2(2.5f, -5));
+        BookDomain.Spawn(ctx, 1, new Vector2(3.5f, -5));
+
 
     }
 
