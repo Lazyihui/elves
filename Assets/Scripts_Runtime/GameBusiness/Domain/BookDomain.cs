@@ -2,12 +2,12 @@ using System;
 using UnityEngine;
 public static class BookDomain {
 
-    public static BookEntity Spawn(GameContext ctx, int typeID) {
+    public static BookEntity Spawn(GameContext ctx, int typeID,int id) {
 
-        bool has = ctx.templateContext.books.TryGetValue(typeID, out BookTM tm);
+        bool has = ctx.templateContext.books.TryGetValue(id, out BookTM tm);
 
         if (!has) {
-            Debug.LogError("没找到typeID对应的模板" + typeID);
+            Debug.LogError("没找到typeID对应的模板" + id);
         }
         ctx.assetsContext.TryGetEntity("Entity_Book", out GameObject prefab);
         BookEntity book = GameObject.Instantiate(prefab).GetComponent<BookEntity>();

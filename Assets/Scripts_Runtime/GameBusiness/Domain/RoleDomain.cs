@@ -27,7 +27,6 @@ public static class RoleDomain {
     }
 
     static void OnCollisionEnter(RoleEntity role, Collision2D other) {
-        Debug.Log("OnCollisionEnter");
         if (other.gameObject.CompareTag("Ground")) {
             role.SetGround(true);
         }

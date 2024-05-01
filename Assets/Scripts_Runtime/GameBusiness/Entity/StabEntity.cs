@@ -1,18 +1,14 @@
 using System;
 using UnityEngine;
 
-public class BookEntity : MonoBehaviour {
+public class StabEntity : MonoBehaviour {
 
     public int typeID;
 
     public int id;
 
-    public BookEntity() {
-
-    }
+    public StabEntity() { }
 
     public void Ctor() { }
-
-
 
 }

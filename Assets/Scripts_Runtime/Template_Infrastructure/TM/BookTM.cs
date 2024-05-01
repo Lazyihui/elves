@@ -15,8 +15,5 @@ public class BookTM : ScriptableObject {
 
     public Vector2 pos;
 
-    [Header("bool")]
-    public bool isGround;
-
 
 }

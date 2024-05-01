@@ -25,6 +25,17 @@ public class TemplateInfras {
             ctx.bookPtr = ptr;
         }
 
+        {
+            AssetLabelReference labelReference = new AssetLabelReference();
+            labelReference.labelString = "TM_Stab";
+            var ptr = Addressables.LoadAssetsAsync<StabTM>(labelReference, null);
+            var list = ptr.WaitForCompletion();
+            foreach (var go in list) {
+                ctx.stabs.Add(go.id, go);
+            }
+            ctx.stabPtr = ptr;
+        }
+
     }
 
     public static void Unload(TemplateContext ctx) {
