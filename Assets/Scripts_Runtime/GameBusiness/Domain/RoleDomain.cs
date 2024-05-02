@@ -32,5 +32,32 @@ public static class RoleDomain {
         }
     }
 
+    public static void OverLapStab(GameContext ctx, RoleEntity role) {
+        StabEntity target = ctx.stabRepository.Find((stab) => {
+            float dirSqr = Vector2.SqrMagnitude(stab.transform.position - role.transform.position);
+            if (dirSqr < 0.1f) {
+                return true;
+            } else {
+                return false;
+            }
+        });
+
+        if (target != null) {
+            Debug.Log("OverLapStab");
+        }
+    }
+
+    // public static void OverLapCircle(GameContext ctx, Vector2 pos, float radius) {
+    //     Collider2D[] colliders = Physics2D.OverlapCircleAll(pos, radius);
+    //     foreach (var collider in colliders) {
+    //         if (collider.gameObject.CompareTag("Role")) {
+    //             RoleEntity role = collider.gameObject.GetComponent<RoleEntity>();
+    //             if (role.id != ctx.roleID) {
+    //                 role.OnOverlapCircle(ctx.roleID);
+    //             }
+    //         }
+    //     }
+    // }
+
 
 }

@@ -40,6 +40,10 @@ public static class GameBusiness {
 
         // role.Move(input.moveAxis, dt);
 
+        // for role 就一个
+        RoleDomain.OverLapStab(ctx, role);
+
+
     }
 
     static void CheckGround(RoleEntity role) {
