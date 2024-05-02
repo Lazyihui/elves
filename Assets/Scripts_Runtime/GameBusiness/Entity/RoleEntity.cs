@@ -21,7 +21,7 @@ public class RoleEntity : MonoBehaviour {
     public bool run_isEntering;
     // 跳跃
     public bool isGrounded;
-
+    // 
     public float die_maintainTime;
 
     public int id;
@@ -49,7 +49,7 @@ public class RoleEntity : MonoBehaviour {
     }
 
     public void Jump(bool isJumpingKeyDown) {
-        if (isJumpingKeyDown&&isGrounded) {
+        if (isJumpingKeyDown && isGrounded) {
             Vector2 velo = rb.velocity;
             velo.y = 5;
             rb.velocity = velo;
@@ -77,7 +77,7 @@ public class RoleEntity : MonoBehaviour {
         fsmStatus = RoleFSMStatus.Run;
         run_isEntering = true;
     }
-// 赢碰撞F
+    // 赢碰撞F
     void OnCollisionEnter2D(Collision2D other) {
         OnCollisionEnterHandle.Invoke(this, other);
     }

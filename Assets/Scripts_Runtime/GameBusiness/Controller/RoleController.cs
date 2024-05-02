@@ -28,12 +28,17 @@ public static class RoleController {
         //  任何状态都是会执行的逻辑
         // Role.CheckSpike();
         // 技能cd/buff时间
-        // float x = role.transform.position.x;
+        float x = role.transform.position.x;
         // if (x > 10) {
         //     if (role.fsmStatus != RoleFSMStatus.Die) {
         //         role.fsmStatus = RoleFSMStatus.Die;
         //     }
         // }
+        if (role.die_isEntering) {
+            if (role.fsmStatus != RoleFSMStatus.Die) {
+                role.Enter_Die(0.8f);
+            }
+        }
     }
 
     static void Idle_Status(GameContext ctx, RoleEntity role, Vector2 moveAxis, float dt) {
@@ -71,12 +76,13 @@ public static class RoleController {
         if (role.die_isEntering) {
             role.die_isEntering = false;
             role.animator.Play("Die");
-            Debug.Log("Die");
         }
 
         role.die_maintainTime -= dt;
+        Debug.Log(role.die_maintainTime);
         if (role.die_maintainTime <= 0) {
-            role.transform.position = Vector3.zero;
+            Debug.Log("Die");
+            role.transform.position = new Vector2(-4, 0);
             role.Enter_Idle();
         }
     }

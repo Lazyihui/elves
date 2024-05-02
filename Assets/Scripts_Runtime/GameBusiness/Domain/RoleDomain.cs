@@ -36,7 +36,7 @@ public static class RoleDomain {
         StabEntity target = ctx.stabRepository.Find((stab) => {
             float dirSqr = Vector2.SqrMagnitude(stab.transform.position - role.transform.position);
             if (dirSqr < 1.5f) {
-                role.Enter_Die(1);
+                role.die_isEntering = true;
                 return true;
             } else {
                 return false;
