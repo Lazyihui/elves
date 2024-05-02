@@ -70,7 +70,7 @@ public static class RoleController {
     static void Die_State(RoleEntity role, float dt) {
         if (role.die_isEntering) {
             role.die_isEntering = false;
-            role.animator.Play("Animation_Role1_Die");
+            role.animator.Play("Die");
             Debug.Log("Die");
         }
 

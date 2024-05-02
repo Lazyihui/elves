@@ -35,16 +35,14 @@ public static class RoleDomain {
     public static void OverLapStab(GameContext ctx, RoleEntity role) {
         StabEntity target = ctx.stabRepository.Find((stab) => {
             float dirSqr = Vector2.SqrMagnitude(stab.transform.position - role.transform.position);
-            if (dirSqr < 0.1f) {
+            if (dirSqr < 1.5f) {
+                role.Enter_Die(1);
                 return true;
             } else {
                 return false;
             }
         });
 
-        if (target != null) {
-            Debug.Log("OverLapStab");
-        }
     }
 
     // public static void OverLapCircle(GameContext ctx, Vector2 pos, float radius) {
