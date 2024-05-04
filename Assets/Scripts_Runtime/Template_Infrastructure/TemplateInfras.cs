@@ -35,6 +35,16 @@ public class TemplateInfras {
             }
             ctx.stabPtr = ptr;
         }
+        {
+            AssetLabelReference labelReference = new AssetLabelReference();
+            labelReference.labelString = "TM_Ruler";
+            var ptr = Addressables.LoadAssetsAsync<RulerTM>(labelReference, null);
+            var list = ptr.WaitForCompletion();
+            foreach (var go in list) {
+                ctx.rulers.Add(go.id, go);
+            }
+            ctx.rulerPtr = ptr;
+        }
 
     }
 

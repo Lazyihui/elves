@@ -17,6 +17,9 @@ public static class GameBusiness {
         StabDomain.Spawn(ctx, 0, 0);
         StabDomain.Spawn(ctx, 0, 1);
 
+        // ruler
+        RulerDomain.Spawn(ctx, 1, 0);
+
 
     }
 
