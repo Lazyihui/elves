@@ -40,7 +40,7 @@ public static class RoleController {
                 role.Enter_Die(0.8f);
             }
         }
-        if (role.die_isEntering) {
+        if (role.isDie) {
             if (role.fsmStatus != RoleFSMStatus.Die) {
                 role.Enter_Die(0.8f);
             }
@@ -79,6 +79,11 @@ public static class RoleController {
     }
 
     static void Die_State(RoleEntity role, float dt) {
+
+        if (role.isDie) {
+            role.isDie = false;
+        }
+
         if (role.die_isEntering) {
             role.die_isEntering = false;
             role.animator.Play("Die");

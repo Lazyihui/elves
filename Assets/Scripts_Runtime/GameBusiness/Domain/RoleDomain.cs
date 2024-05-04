@@ -15,6 +15,7 @@ public static class RoleDomain {
         role.id = ID;//先这样写
         role.transform.position = pos;
         role.moveSpeed = 3;
+        role.isDie = false;
         role.Enter_Idle();
         ctx.roleRespository.Add(role);
         ctx.roleID = role.id;
@@ -36,7 +37,7 @@ public static class RoleDomain {
         StabEntity target = ctx.stabRepository.Find((stab) => {
             float dirSqr = Vector2.SqrMagnitude(stab.transform.position - role.transform.position);
             if (dirSqr < 1.5f) {
-                role.die_isEntering = true;
+                role.isDie = true;
                 return true;
             } else {
                 return false;

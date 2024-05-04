@@ -18,6 +18,7 @@ public class RoleEntity : MonoBehaviour {
     public bool idle_isEntering;
 
     public bool die_isEntering;
+    public bool isDie;
 
     public bool run_isEntering;
     // 跳跃
