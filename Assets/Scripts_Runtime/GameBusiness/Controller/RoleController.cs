@@ -29,11 +29,17 @@ public static class RoleController {
         // Role.CheckSpike();
         // 技能cd/buff时间
         float x = role.transform.position.x;
+        float y = role.transform.position.y;
         // if (x > 10) {
         //     if (role.fsmStatus != RoleFSMStatus.Die) {
         //         role.fsmStatus = RoleFSMStatus.Die;
         //     }
         // }
+        if (y < -6) {
+            if (role.fsmStatus != RoleFSMStatus.Die) {
+                role.Enter_Die(0.8f);
+            }
+        }
         if (role.die_isEntering) {
             if (role.fsmStatus != RoleFSMStatus.Die) {
                 role.Enter_Die(0.8f);

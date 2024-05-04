@@ -14,7 +14,7 @@ public static class RoleDomain {
         role.Ctor();
         role.id = ID;//先这样写
         role.transform.position = pos;
-        role.moveSpeed = 2;
+        role.moveSpeed = 3;
         role.Enter_Idle();
         ctx.roleRespository.Add(role);
         ctx.roleID = role.id;
