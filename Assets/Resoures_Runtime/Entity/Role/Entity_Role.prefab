@@ -158,11 +158,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 3394113104470024022}
   animator: {fileID: 5651686309476424692}
-  body: {fileID: 0}
   fsmStatus: 0
   idle_isEntering: 0
   die_isEntering: 0
+  isDie: 0
   run_isEntering: 0
+  isGrounded: 0
   die_maintainTime: 0
   id: 0
   moveSpeed: 0
@@ -202,7 +203,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.031959534, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -212,7 +213,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.70244217, y: 1}
   m_EdgeRadius: 0
 --- !u!50 &3394113104470024022
 Rigidbody2D:
@@ -240,4 +241,4 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
