@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 150181511337639547}
   m_Layer: 0
   m_Name: Entity_Ruler
-  m_TagString: Untagged
+  m_TagString: Ruler
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

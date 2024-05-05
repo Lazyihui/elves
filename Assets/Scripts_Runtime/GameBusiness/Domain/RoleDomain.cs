@@ -31,7 +31,22 @@ public static class RoleDomain {
         if (other.gameObject.CompareTag("Ground")) {
             role.SetGround(true);
         }
+        if (other.gameObject.CompareTag("Ruler")) {
+            // 可以在ruler上面站三秒 然后ruler消失
+            role.SetGround(true);
+            Debug.Log("Ruler");
+        }
     }
+
+    // static void OnCollisionStay(RoleEntity role, Collision2D other) {
+
+    //     if (other.gameObject.CompareTag("Ruler")) {
+    //         role.SetGround(true);
+    //         Debug.Log("Ruler");
+    //     }
+
+
+    // }
 
     public static void OverLapStab(GameContext ctx, RoleEntity role) {
         StabEntity target = ctx.stabRepository.Find((stab) => {

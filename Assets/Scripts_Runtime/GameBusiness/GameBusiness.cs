@@ -23,6 +23,17 @@ public static class GameBusiness {
 
     }
 
+    static void OnCollisionStay2D(RoleEntity role, Collision2D other) {
+        if (other.gameObject.CompareTag("Ground")) {
+            role.SetGround(true);
+        }
+        if (other.gameObject.CompareTag("Ruler")) {
+            // 可以在ruler上面站三秒 然后ruler消失
+            role.SetGround(true);
+            Debug.Log("Ruler");
+        }
+    }
+
     public static void FixedTick(GameContext ctx, float dt) {
 
 
@@ -46,6 +57,30 @@ public static class GameBusiness {
         // for role 就一个
         RoleDomain.OverLapStab(ctx, role);
 
+        // ruler
+        int rulerLen = ctx.rulerRepository.TakeAll(out RulerEntity[] rulers);
+
+
+        for (int i = 0; i < rulerLen; i++) {
+            RulerEntity ruler = rulers[i];
+            // 匿名函数
+            role.OnCollisionEnterHandle = (role, other) => {
+
+                if (other.gameObject.CompareTag("Ruler")) {
+                    role.SetGround(true);
+
+                    ruler.maintainterTimer -= dt;
+                    if (ruler.maintainterTimer < 0) {
+                        RulerDomain.UnSpawn(ctx, ruler);
+                        ruler.maintainterTimer = ruler.maintain;
+                    }
+                }
+
+            };
+            //想写成bool
+
+        }
+
 
     }
 
@@ -64,20 +99,4 @@ public static class GameBusiness {
             }
         }
     }
-    // static void CheckGround(RoleEntity role) {
-    //     RaycastHit[] hits = Physics.RaycastAll(role.transform.position + Vector3.up, Vector3.down, 5.05f);
-    //     // 画射线
-    //     Debug.DrawRay(role.transform.position + Vector3.up, Vector3.down*5.05f, Color.red);
-    //     if (hits != null) {
-    //         for (int i = 0; i < hits.Length; i++) {
-    //             var hit = hits[i];
-    //             if (hit.collider.CompareTag("Ground")) {
-    //                 Debug.Log("Ground");
-    //                 role.SetGround(true);
-    //                 break;
-    //             }
-    //         }
-    //     }
-    // }
-
 }

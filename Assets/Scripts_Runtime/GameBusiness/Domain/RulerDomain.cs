@@ -15,8 +15,17 @@ public static class RulerDomain {
         ruler.Ctor();
         ruler.id = ctx.rulerID++;
         ruler.typeID = tm.typeID;
+        ruler.maintain = tm.maintain;
+        ruler.maintainterTimer = tm.maintainterTimer;
         ruler.transform.position = tm.pos;
         ctx.rulerRepository.Add(ruler);
         return ruler;
     }
+
+    public static void UnSpawn(GameContext ctx, RulerEntity ruler) {
+        
+        ctx.rulerRepository.Remove(ruler);
+        ruler.TearDown();
+    }
+
 }

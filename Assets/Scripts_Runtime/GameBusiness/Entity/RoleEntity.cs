@@ -10,6 +10,8 @@ public class RoleEntity : MonoBehaviour {
     // 委托
     public Action<RoleEntity, Collision2D> OnCollisionEnterHandle;
 
+    public Action<RoleEntity, Collision2D> OnCollisionStayHandle;
+
     public Action<RoleEntity, Collider2D> OnTriggerEnterHandle;
 
 
@@ -53,7 +55,7 @@ public class RoleEntity : MonoBehaviour {
     public void Jump(bool isJumpingKeyDown) {
         if (isJumpingKeyDown && isGrounded) {
             Vector2 velo = rb.velocity;
-            velo.y = 5;
+            velo.y = 6;
             rb.velocity = velo;
             isGrounded = false;
         }
@@ -84,6 +86,7 @@ public class RoleEntity : MonoBehaviour {
         OnCollisionEnterHandle.Invoke(this, other);
     }
     void OnCollisionStay2D(Collision2D other) {
+        OnCollisionStayHandle.Invoke(this, other);
     }
     void OnCollisionExit2D(Collision2D other) {
     }

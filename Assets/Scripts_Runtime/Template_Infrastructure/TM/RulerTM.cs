@@ -10,6 +10,10 @@ public class RulerTM : ScriptableObject {
 
     public int id;
 
+    public float maintainterTimer;
+
+    public float maintain;
+
 
     public Vector2 pos;
 
