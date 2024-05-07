@@ -66,7 +66,12 @@ public static class GameBusiness {
             // 匿名函数
             role.OnCollisionEnterHandle = (role, other) => {
 
+                if (other.gameObject.CompareTag("Ground")) {
+                    role.SetGround(true);
+                }
+
                 if (other.gameObject.CompareTag("Ruler")) {
+                    Debug.Log("Ruler");
                     role.SetGround(true);
 
                     ruler.maintainterTimer -= dt;

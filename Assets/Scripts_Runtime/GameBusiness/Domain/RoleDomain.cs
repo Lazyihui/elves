@@ -21,7 +21,8 @@ public static class RoleDomain {
         ctx.roleID = role.id;
 
 
-        role.OnCollisionEnterHandle = OnCollisionEnter;
+        // role.OnCollisionEnterHandle = OnCollisionEnter;
+        // role.OnCollisionStayHandle = OnCollisionStay;
 
 
         return role;
@@ -38,15 +39,13 @@ public static class RoleDomain {
         }
     }
 
-    // static void OnCollisionStay(RoleEntity role, Collision2D other) {
+    static void OnCollisionStay(RoleEntity role, Collision2D other) {
 
-    //     if (other.gameObject.CompareTag("Ruler")) {
-    //         role.SetGround(true);
-    //         Debug.Log("Ruler");
-    //     }
-
-
-    // }
+        if (other.gameObject.CompareTag("Ruler")) {
+            role.SetGround(true);
+            Debug.Log("Ruler");
+        }
+    }
 
     public static void OverLapStab(GameContext ctx, RoleEntity role) {
         StabEntity target = ctx.stabRepository.Find((stab) => {
