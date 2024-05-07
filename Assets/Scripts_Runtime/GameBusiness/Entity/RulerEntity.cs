@@ -13,6 +13,9 @@ public class RulerEntity : MonoBehaviour {
 
     public float maintain;
 
+    public float fadeTimer;
+    public float fade;
+
     public RulerEntity() { }
 
     public void Ctor() { }

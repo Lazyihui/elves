@@ -14,6 +14,10 @@ public class RulerTM : ScriptableObject {
 
     public float maintain;
 
+    public float fadeTimer;
+
+    public float fade;
+
 
     public Vector2 pos;
 
