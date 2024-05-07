@@ -18,6 +18,8 @@ public class RulerEntity : MonoBehaviour {
 
     public bool isRoleStanding;
 
+    public bool isRoleHadStanding;
+
     public RulerEntity() { }
 
     public void Ctor() { }

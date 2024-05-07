@@ -63,36 +63,9 @@ public static class GameBusiness {
 
         for (int i = 0; i < rulerLen; i++) {
             RulerEntity ruler = rulers[i];
-            // 匿名函数
+            // 这应该有错 多几个TM可能会有问题
+            RulerDomain.RulerFade(ctx, ruler, dt);
 
-            if (ruler.isRoleStanding) {
-                Debug.Log(ruler.isRoleStanding);
-                ruler.maintainterTimer -= dt;
-                RulerDomain.UnSpawn(ctx, ruler);
-                ruler.maintainterTimer = ruler.maintain;
-            }
-            // role.OnCollisionStayHandle = (role, other) => {
-
-            //     if (other.gameObject.CompareTag("Ground")) {
-            //         role.SetGround(true);
-            //     }
-
-            //     if (other.gameObject.CompareTag("Ruler")) {
-            //         role.SetGround(true);
-
-            //         ruler.maintainterTimer -= dt;
-            //         if (ruler.maintainterTimer < 0) {
-
-            //             RulerDomain.UnSpawn(ctx, ruler);
-
-            //             ruler.maintainterTimer = ruler.maintain;
-
-            //         }
-
-            //     }
-
-            // };
-            //想写成bool
 
         }
 

@@ -23,9 +23,27 @@ public static class RulerDomain {
     }
 
     public static void UnSpawn(GameContext ctx, RulerEntity ruler) {
-        
+
         ctx.rulerRepository.Remove(ruler);
         ruler.TearDown();
+    }
+
+    public static void RulerFade(GameContext ctx, RulerEntity ruler, float dt) {
+
+        if (ruler.isRoleStanding) {
+            Debug.Log(ruler.isRoleStanding);
+            ruler.maintainterTimer -= dt;
+
+            if (ruler.maintainterTimer < 0) {
+                RulerDomain.UnSpawn(ctx, ruler);
+                ruler.maintainterTimer = ruler.maintain;
+            }
+        }
+
+        if (!ruler.isRoleStanding) {
+            RulerDomain.Spawn(ctx, 0, 0);
+
+        }
     }
 
 }
