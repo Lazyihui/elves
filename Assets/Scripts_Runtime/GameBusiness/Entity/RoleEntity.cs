@@ -12,6 +12,8 @@ public class RoleEntity : MonoBehaviour {
 
     public Action<RoleEntity, Collision2D> OnCollisionStayHandle;
 
+    public Action<RoleEntity, Collision2D> OnCollisionExitHandle;
+
     public Action<RoleEntity, Collider2D> OnTriggerEnterHandle;
 
 
@@ -89,6 +91,7 @@ public class RoleEntity : MonoBehaviour {
         OnCollisionStayHandle.Invoke(this, other);
     }
     void OnCollisionExit2D(Collision2D other) {
+        OnCollisionExitHandle.Invoke(this, other);
     }
 
     void OnTriggerEnter2D(Collider2D other) {

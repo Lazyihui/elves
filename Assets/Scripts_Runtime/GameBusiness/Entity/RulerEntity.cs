@@ -16,6 +16,8 @@ public class RulerEntity : MonoBehaviour {
     public float fadeTimer;
     public float fade;
 
+    public bool isRoleStanding;
+
     public RulerEntity() { }
 
     public void Ctor() { }

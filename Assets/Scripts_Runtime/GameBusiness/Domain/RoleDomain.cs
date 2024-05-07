@@ -22,18 +22,26 @@ public static class RoleDomain {
 
 
         role.OnCollisionEnterHandle = OnCollisionEnter;
+        role.OnCollisionStayHandle = OnCollisionStay;
+        role.OnCollisionExitHandle = OnCollisionExit;
+
 
 
         return role;
     }
 
     static void OnCollisionEnter(RoleEntity role, Collision2D other) {
+
         if (other.gameObject.CompareTag("Ground")) {
             role.SetGround(true);
         }
         if (other.gameObject.CompareTag("Ruler")) {
             // 可以在ruler上面站三秒 然后ruler消失 zai stay上面写
             role.SetGround(true);
+
+            RulerEntity ruler = other.gameObject.GetComponent<RulerEntity>();
+
+            ruler.isRoleStanding = true;
         }
     }
 
@@ -42,6 +50,16 @@ public static class RoleDomain {
         if (other.gameObject.CompareTag("Ruler")) {
             role.SetGround(true);
             Debug.Log("Ruler");
+        }
+    }
+
+    static void OnCollisionExit(RoleEntity role, Collision2D other) {
+
+        if (other.gameObject.CompareTag("Ruler")) {
+
+            RulerEntity ruler = other.gameObject.GetComponent<RulerEntity>();
+            ruler.isRoleStanding = false;
+
         }
     }
 
