@@ -49,7 +49,6 @@ public static class RoleDomain {
 
         if (other.gameObject.CompareTag("Ruler")) {
             role.SetGround(true);
-            Debug.Log("Ruler");
         }
     }
 

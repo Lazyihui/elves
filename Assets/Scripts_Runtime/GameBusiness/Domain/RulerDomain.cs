@@ -31,19 +31,30 @@ public static class RulerDomain {
     public static void RulerFade(GameContext ctx, RulerEntity ruler, float dt) {
 
         if (ruler.isRoleStanding) {
-            Debug.Log(ruler.isRoleStanding);
             ruler.maintainterTimer -= dt;
-
             if (ruler.maintainterTimer < 0) {
                 RulerDomain.UnSpawn(ctx, ruler);
                 ruler.maintainterTimer = ruler.maintain;
+                ruler.isRoleHadStanding = true;
+                ruler.isRoleStanding = false;
             }
         }
 
-        if (!ruler.isRoleStanding) {
-            RulerDomain.Spawn(ctx, 0, 0);
+        if (ruler.isRoleHadStanding) {
 
+            ruler.maintainterTimer -= dt;
+            Debug.Log(ruler.maintainterTimer);
+            if (ruler.maintainterTimer < 0) {
+                RulerDomain.Spawn(ctx, ruler.typeID, ruler.id);
+                ruler.maintainterTimer = ruler.maintain;
+                ruler.isRoleHadStanding = false;
+            }
         }
+
+
+
+
+
     }
 
 }
