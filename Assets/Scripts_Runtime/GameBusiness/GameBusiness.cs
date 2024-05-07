@@ -64,17 +64,17 @@ public static class GameBusiness {
         for (int i = 0; i < rulerLen; i++) {
             RulerEntity ruler = rulers[i];
             // 匿名函数
-            role.OnCollisionEnterHandle = (role, other) => {
+            role.OnCollisionStayHandle = (role, other) => {
 
                 if (other.gameObject.CompareTag("Ground")) {
                     role.SetGround(true);
                 }
 
                 if (other.gameObject.CompareTag("Ruler")) {
-                    Debug.Log("Ruler");
                     role.SetGround(true);
 
                     ruler.maintainterTimer -= dt;
+                    Debug.Log(ruler.maintainterTimer);  
                     if (ruler.maintainterTimer < 0) {
                         RulerDomain.UnSpawn(ctx, ruler);
                         ruler.maintainterTimer = ruler.maintain;

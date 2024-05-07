@@ -21,8 +21,7 @@ public static class RoleDomain {
         ctx.roleID = role.id;
 
 
-        // role.OnCollisionEnterHandle = OnCollisionEnter;
-        // role.OnCollisionStayHandle = OnCollisionStay;
+        role.OnCollisionEnterHandle = OnCollisionEnter;
 
 
         return role;
@@ -33,9 +32,8 @@ public static class RoleDomain {
             role.SetGround(true);
         }
         if (other.gameObject.CompareTag("Ruler")) {
-            // 可以在ruler上面站三秒 然后ruler消失
+            // 可以在ruler上面站三秒 然后ruler消失 zai stay上面写
             role.SetGround(true);
-            Debug.Log("Ruler");
         }
     }
 
