@@ -53,17 +53,14 @@ public static class GameBusiness {
         for (int i = 0; i < rulerLen; i++) {
             RulerEntity ruler = rulers[i];
             // 这应该有错 多几个TM可能会有问题
-            // RulerDomain.RulerFade(ctx, ruler, role, dt);
+            RulerDomain.RulerFade(ctx, ruler, role, dt);
 
             if (role.isRoleHadNoStanding) {
 
                 // 根据id找到对应的ruler是否存在
-                Debug.Log(dt);
-
-
 
                 bool has = ctx.rulerRepository.TryGet(role.rulerID, out RulerEntity rulerEntity);
-                if (!has) {
+                if (has) {
                     Debug.Log("没找到对应的ruler" + role.rulerID);
                     // Debug.Log(dt);
                     role.fadeTimer -= dt;
@@ -72,9 +69,10 @@ public static class GameBusiness {
 
                         Debug.Log(";;;");
 
-                        // RulerDomain.Spawn(ctx, role.rulerTypeID, role.rulerID);
+                        RulerDomain.Show(ctx, ruler);
 
                         role.fadeTimer = role.fade;
+
                         role.isRoleHadNoStanding = false;
                     }
 

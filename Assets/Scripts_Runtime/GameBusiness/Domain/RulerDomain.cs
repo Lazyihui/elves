@@ -30,6 +30,14 @@ public static class RulerDomain {
         ruler.TearDown();
     }
 
+    public static void Hide(GameContext ctx, RulerEntity ruler) {
+        ruler.Hide();
+    }
+
+    public static void Show(GameContext ctx, RulerEntity ruler) {
+        ruler.Show();
+    }
+
     public static void RulerFade(GameContext ctx, RulerEntity ruler, RoleEntity role, float dt) {
 
 
@@ -38,7 +46,7 @@ public static class RulerDomain {
 
             if (ruler.maintainterTimer < 0) {
 
-                RulerDomain.UnSpawn(ctx, ruler);
+                RulerDomain.Hide(ctx, ruler);
                 ruler.maintainterTimer = ruler.maintain;
 
                 role.rulerID = ruler.id;

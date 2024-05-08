@@ -28,4 +28,13 @@ public class RulerEntity : MonoBehaviour {
         Destroy(this.gameObject);
     }
 
+    // 隐藏ruler
+    public void Hide() {
+        this.gameObject.SetActive(false);
+    }
+
+    public void Show() {
+        this.gameObject.SetActive(true);
+    }
+
 }
