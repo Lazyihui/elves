@@ -29,6 +29,24 @@ MonoBehaviour:
     m_SerializedLabels:
     - TM_Stab
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a31f232d63cc8be488f8c3d239ac0d65
+    m_Address: TM_Stab 4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Stab
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2476f6fa066d90a45a1535f86722bc0b
+    m_Address: TM_Stab 3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Stab
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0bb38f28eb27eb046948005efd8ca582
+    m_Address: TM_Stab 2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Stab
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 193efb26beee23a40b4bac14b6435e47, type: 2}
   m_SchemaSet:

@@ -8,14 +8,16 @@ public static class GameBusiness {
         RoleDomain.Spawn(ctx, 1, new Vector2(-4, 0));
 
         // Land
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 16; i++) {
             // 先typeID 再id
             BookDomain.Spawn(ctx, 1, i);
         }
 
+
         // 地刺stab
-        StabDomain.Spawn(ctx, 0, 0);
-        StabDomain.Spawn(ctx, 0, 1);
+        for (int i = 0; i < 5; i++) {
+            StabDomain.Spawn(ctx, 0, i);
+        }
 
         // ruler
         RulerDomain.Spawn(ctx, 1, 0);
@@ -55,7 +57,7 @@ public static class GameBusiness {
             // 这应该有错 多几个TM可能会有问题
             RulerDomain.RulerFade(ctx, ruler, role, dt);
 
-          
+
 
         }
 
@@ -69,7 +71,7 @@ public static class GameBusiness {
         if (hits != null) {
             for (int i = 0; i < hits.Length; i++) {
                 var hit = hits[i];
-                if (hit.collider.CompareTag("Ground")) {
+                if (hit.collider.CompareTag("Ground")||hit.collider.CompareTag("Ruler")) {
 
                     role.SetGround(true);
                     break;

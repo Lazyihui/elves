@@ -77,6 +77,42 @@ MonoBehaviour:
     m_SerializedLabels:
     - TM_Book
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8d65279b888c0e046b157324e2d1bedb
+    m_Address: TM_Book_1 10
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Book
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cad24965dc0d7904c9a537f1a09a665b
+    m_Address: TM_Book_1 11
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Book
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b608d39625cd8384e9a95b6a43e3c619
+    m_Address: TM_Book_1 12
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Book
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4b4b09c1a18c1be48942ebef05167104
+    m_Address: TM_Book_1 13
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Book
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f22c307357dabc34289723717b029636
+    m_Address: TM_Book_1 14
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Book
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 98ce626005f895045ade030f15510acc
+    m_Address: TM_Book_1 15
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TM_Book
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 193efb26beee23a40b4bac14b6435e47, type: 2}
   m_SchemaSet:
