@@ -42,9 +42,6 @@ public class RoleEntity : MonoBehaviour {
 
     public bool isRoleHadNoStanding;
 
-    public float fadeTimer;
-    public float fade;
-
     public RoleEntity() { }
 
     public void Ctor() { }

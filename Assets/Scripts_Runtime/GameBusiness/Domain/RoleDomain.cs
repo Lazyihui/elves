@@ -17,8 +17,6 @@ public static class RoleDomain {
         role.moveSpeed = 3;
         role.isDie = false;
         role.isRoleHadNoStanding = false;
-        role.fadeTimer = 2;
-        role.fade = 2;
         role.Enter_Idle();
 
         // ruler
@@ -66,7 +64,7 @@ public static class RoleDomain {
         if (other.gameObject.CompareTag("Ruler")) {
 
             RulerEntity ruler = other.gameObject.GetComponent<RulerEntity>();
-            role.isRoleHadNoStanding = true;
+            ruler.isRoleHadNoStanding = true;
             ruler.isRoleStanding = false;
         }
     }

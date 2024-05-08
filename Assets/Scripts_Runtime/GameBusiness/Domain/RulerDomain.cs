@@ -54,8 +54,31 @@ public static class RulerDomain {
             }
 
         }
+        if (ruler.isRoleHadNoStanding) {
 
-        
+            // 根据id找到对应的ruler是否存在
+
+            bool has = ctx.rulerRepository.TryGet(role.rulerID, out RulerEntity rulerEntity);
+            if (has) {
+                Debug.Log("没找到对应的ruler" + role.rulerID);
+                // Debug.Log(dt);
+                ruler.fadeTimer -= dt;
+                Debug.Log(ruler.fadeTimer);
+                if (ruler.fadeTimer < 0) {
+
+                    Debug.Log(";;;");
+
+                    RulerDomain.Show(ctx, ruler);
+
+                    ruler.fadeTimer = ruler.fade;
+
+                    ruler.isRoleHadNoStanding = false;
+                }
+
+            }
+
+        }
+
 
     }
 

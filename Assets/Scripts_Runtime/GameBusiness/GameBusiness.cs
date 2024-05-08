@@ -55,30 +55,7 @@ public static class GameBusiness {
             // 这应该有错 多几个TM可能会有问题
             RulerDomain.RulerFade(ctx, ruler, role, dt);
 
-            if (role.isRoleHadNoStanding) {
-
-                // 根据id找到对应的ruler是否存在
-
-                bool has = ctx.rulerRepository.TryGet(role.rulerID, out RulerEntity rulerEntity);
-                if (has) {
-                    Debug.Log("没找到对应的ruler" + role.rulerID);
-                    // Debug.Log(dt);
-                    role.fadeTimer -= dt;
-                    Debug.Log(role.fadeTimer);
-                    if (role.fadeTimer < 0) {
-
-                        Debug.Log(";;;");
-
-                        RulerDomain.Show(ctx, ruler);
-
-                        role.fadeTimer = role.fade;
-
-                        role.isRoleHadNoStanding = false;
-                    }
-
-                }
-
-            }
+          
 
         }
 
