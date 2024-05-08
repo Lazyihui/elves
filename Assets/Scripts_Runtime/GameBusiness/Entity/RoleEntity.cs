@@ -36,6 +36,15 @@ public class RoleEntity : MonoBehaviour {
 
     public float maxhp;
 
+    // 用于记录
+    public int rulerTypeID;
+    public int rulerID;
+
+    public bool isRoleHadNoStanding;
+
+    public float fadeTimer;
+    public float fade;
+
     public RoleEntity() { }
 
     public void Ctor() { }

@@ -16,9 +16,18 @@ public static class RoleDomain {
         role.transform.position = pos;
         role.moveSpeed = 3;
         role.isDie = false;
+        role.isRoleHadNoStanding = false;
+        role.fadeTimer = 2;
+        role.fade = 2;
         role.Enter_Idle();
+
+        // ruler
+        role.rulerTypeID = -1;
+        role.rulerID = -1;
+
         ctx.roleRespository.Add(role);
         ctx.roleID = role.id;
+
 
 
         role.OnCollisionEnterHandle = OnCollisionEnter;
@@ -57,8 +66,8 @@ public static class RoleDomain {
         if (other.gameObject.CompareTag("Ruler")) {
 
             RulerEntity ruler = other.gameObject.GetComponent<RulerEntity>();
+            role.isRoleHadNoStanding = true;
             ruler.isRoleStanding = false;
-
         }
     }
 

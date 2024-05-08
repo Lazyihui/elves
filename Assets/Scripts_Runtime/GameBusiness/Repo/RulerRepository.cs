@@ -30,6 +30,10 @@ public class RulerRepository {
         return all.Count;
 
     }
+    public bool TryGet(int entityID, out RulerEntity entity) {
+        return all.TryGetValue(entityID, out entity);
+    }
+
     //委托 Predicate<RulerEntity> Action<>
     public RulerEntity Find(Predicate<RulerEntity> predicate) {
         foreach (RulerEntity ruler in all.Values) {

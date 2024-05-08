@@ -17,6 +17,8 @@ public static class RulerDomain {
         ruler.typeID = tm.typeID;
         ruler.maintain = tm.maintain;
         ruler.maintainterTimer = tm.maintainterTimer;
+        ruler.fade = tm.fade;
+        ruler.fadeTimer = tm.fadeTimer;
         ruler.transform.position = tm.pos;
         ctx.rulerRepository.Add(ruler);
         return ruler;
@@ -28,32 +30,24 @@ public static class RulerDomain {
         ruler.TearDown();
     }
 
-    public static void RulerFade(GameContext ctx, RulerEntity ruler, float dt) {
+    public static void RulerFade(GameContext ctx, RulerEntity ruler, RoleEntity role, float dt) {
+
 
         if (ruler.isRoleStanding) {
             ruler.maintainterTimer -= dt;
+
             if (ruler.maintainterTimer < 0) {
+
                 RulerDomain.UnSpawn(ctx, ruler);
                 ruler.maintainterTimer = ruler.maintain;
-                ruler.isRoleHadStanding = true;
-                ruler.isRoleStanding = false;
+
+                role.rulerID = ruler.id;
+                role.rulerTypeID = ruler.typeID;
             }
+
         }
 
-        if (ruler.isRoleHadStanding) {
-
-            ruler.maintainterTimer -= dt;
-            Debug.Log(ruler.maintainterTimer);
-            if (ruler.maintainterTimer < 0) {
-                RulerDomain.Spawn(ctx, ruler.typeID, ruler.id);
-                ruler.maintainterTimer = ruler.maintain;
-                ruler.isRoleHadStanding = false;
-            }
-        }
-
-
-
-
+        
 
     }
 

@@ -23,17 +23,6 @@ public static class GameBusiness {
 
     }
 
-    static void OnCollisionStay2D(RoleEntity role, Collision2D other) {
-        if (other.gameObject.CompareTag("Ground")) {
-            role.SetGround(true);
-        }
-        if (other.gameObject.CompareTag("Ruler")) {
-            // 可以在ruler上面站三秒 然后ruler消失
-            role.SetGround(true);
-            Debug.Log("Ruler");
-        }
-    }
-
     public static void FixedTick(GameContext ctx, float dt) {
 
 
@@ -64,8 +53,34 @@ public static class GameBusiness {
         for (int i = 0; i < rulerLen; i++) {
             RulerEntity ruler = rulers[i];
             // 这应该有错 多几个TM可能会有问题
-            RulerDomain.RulerFade(ctx, ruler, dt);
+            // RulerDomain.RulerFade(ctx, ruler, role, dt);
 
+            if (role.isRoleHadNoStanding) {
+
+                // 根据id找到对应的ruler是否存在
+                Debug.Log(dt);
+
+
+
+                bool has = ctx.rulerRepository.TryGet(role.rulerID, out RulerEntity rulerEntity);
+                if (!has) {
+                    Debug.Log("没找到对应的ruler" + role.rulerID);
+                    // Debug.Log(dt);
+                    role.fadeTimer -= dt;
+                    Debug.Log(role.fadeTimer);
+                    if (role.fadeTimer < 0) {
+
+                        Debug.Log(";;;");
+
+                        // RulerDomain.Spawn(ctx, role.rulerTypeID, role.rulerID);
+
+                        role.fadeTimer = role.fade;
+                        role.isRoleHadNoStanding = false;
+                    }
+
+                }
+
+            }
 
         }
 
