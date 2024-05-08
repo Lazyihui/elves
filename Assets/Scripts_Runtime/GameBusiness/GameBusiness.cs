@@ -22,6 +22,9 @@ public static class GameBusiness {
         // ruler
         RulerDomain.Spawn(ctx, 1, 0);
 
+        // land
+        LandDomain.Spawn(ctx, 1, 0);
+
 
     }
 

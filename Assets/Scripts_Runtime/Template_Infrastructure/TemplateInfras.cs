@@ -45,6 +45,17 @@ public class TemplateInfras {
             }
             ctx.rulerPtr = ptr;
         }
+        {
+            AssetLabelReference labelReference = new AssetLabelReference();
+            labelReference.labelString = "TM_Land";
+            var ptr = Addressables.LoadAssetsAsync<LandTM>(labelReference, null);
+            var list = ptr.WaitForCompletion();
+            foreach (var go in list) {
+                ctx.lands.Add(go.id, go);
+            }
+            ctx.landPtr = ptr;
+
+        }
 
     }
 
@@ -52,6 +63,16 @@ public class TemplateInfras {
         if (ctx.bookPtr.IsValid()) {
             Addressables.Release(ctx.bookPtr);
         }
+        if (ctx.stabPtr.IsValid()) {
+            Addressables.Release(ctx.stabPtr);
+        }
+        if (ctx.rulerPtr.IsValid()) {
+            Addressables.Release(ctx.rulerPtr);
+        }
+        if (ctx.landPtr.IsValid()) {
+            Addressables.Release(ctx.landPtr);
+        }
+
     }
 
 }

@@ -51,6 +51,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9b67ad3a02b155e47955f6a8b0e273c4, type: 2}
   - {fileID: 11400000, guid: 8e31ad55e8de007438a52772baac8eb9, type: 2}
   - {fileID: 11400000, guid: b409fab85276dd241bc67a8c23a4b6a1, type: 2}
+  - {fileID: 11400000, guid: 61587a067db2841498eb07b9ffcd4009, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -97,6 +98,7 @@ MonoBehaviour:
     - TM_Book
     - TM_Stab
     - TM_Ruler
+    - TM_Land
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 68207cb6218f94348a6af97524bb6aef, type: 2}
