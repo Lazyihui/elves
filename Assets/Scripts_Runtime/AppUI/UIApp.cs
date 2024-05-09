@@ -29,4 +29,40 @@ public static class UIApp {
             panel.Close();
         }
     }
+
+    // panel_HeartInfo
+    public static void Panel_HeartInfo_Open(UIContext ctx, int hp) {
+        Panel_HeartInfo panel = ctx.panel_HeartInfo;
+
+        if (panel == null) {
+            bool has = ctx.assetsContext.TryGetPanel("Panel_HeartInfo", out GameObject prefab);
+            if (!has) {
+                Debug.LogError("Panel==Null");
+                return;
+            }
+
+            panel = GameObject.Instantiate(prefab, ctx.screenCanvas.transform).GetComponent<Panel_HeartInfo>();
+            panel.Ctor();
+            ctx.panel_HeartInfo = panel;
+        }
+        panel.Init(hp);
+        panel.Show();
+    }
+
+    public static void Panel_HeartInfo_Updata(UIContext ctx, int hp) {
+        Panel_HeartInfo panel = ctx.panel_HeartInfo;
+        if (panel != null) {
+            panel.Init(hp);
+        }
+    }
+
+
+    public static void Panel_HeartInfo_Close(UIContext ctx) {
+        Panel_HeartInfo panel = ctx.panel_HeartInfo;
+        if (panel != null) {
+            panel.Close();
+        }
+    }
+
+
 }

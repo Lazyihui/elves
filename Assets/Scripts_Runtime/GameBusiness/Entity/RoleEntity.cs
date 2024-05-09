@@ -32,7 +32,7 @@ public class RoleEntity : MonoBehaviour {
 
     public int id;
     public float moveSpeed;
-    public float hp;
+    public int hp;
 
     public float maxhp;
 

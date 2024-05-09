@@ -20,6 +20,8 @@ public class GameContext {
 
     public LandRepository landRepository;
     public TemplateContext templateContext;
+
+    public UIContext uiContext;
     public int roleID;
 
     public int bookID;
@@ -42,9 +44,11 @@ public class GameContext {
         landID = 0;
     }
 
-    public void Inject(AssetsContext assetsContext, ModuleInput moduleInput, TemplateContext templateContext) {
+    public void Inject(AssetsContext assetsContext, ModuleInput moduleInput, TemplateContext templateContext, UIContext uIContext) {
         this.assetsContext = assetsContext;
         this.moduleInput = moduleInput;
         this.templateContext = templateContext;
+        this.uiContext = uIContext;
+
     }
 }

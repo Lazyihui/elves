@@ -15,6 +15,7 @@ public static class RoleDomain {
         role.id = ID;//先这样写
         role.transform.position = pos;
         role.moveSpeed = 3;
+        role.hp = 4;
         role.isDie = false;
         role.isRoleHadNoStanding = false;
         role.Enter_Idle();
@@ -39,7 +40,7 @@ public static class RoleDomain {
 
     static void OnCollisionEnter(RoleEntity role, Collision2D other) {
 
-        if (other.gameObject.CompareTag("Ground")|| other.gameObject.CompareTag("Ruler")) {
+        if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("Ruler")) {
             role.SetGround(true);
         }
         if (other.gameObject.CompareTag("Ruler")) {

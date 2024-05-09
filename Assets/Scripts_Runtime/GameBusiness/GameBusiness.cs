@@ -25,9 +25,11 @@ public static class GameBusiness {
         // land
         LandDomain.Spawn(ctx, 1, 0);
 
+        UIApp.Panel_HeartInfo_Open(ctx.uiContext, 4);
+
 
     }
-
+    // 多次
     public static void FixedTick(GameContext ctx, float dt) {
 
 
@@ -39,12 +41,10 @@ public static class GameBusiness {
             return;
         }
 
-
         RoleController.Tick(ctx, role, input.moveAxis, dt);
 
         // CheckGround(role);
         // CheckGround(role);
-
 
         // role.Move(input.moveAxis, dt);
 
@@ -54,17 +54,20 @@ public static class GameBusiness {
         // ruler
         int rulerLen = ctx.rulerRepository.TakeAll(out RulerEntity[] rulers);
 
-
         for (int i = 0; i < rulerLen; i++) {
             RulerEntity ruler = rulers[i];
             // 这应该有错 多几个TM可能会有问题
             RulerDomain.RulerFade(ctx, ruler, role, dt);
-
-
-
         }
 
+    }
+    // 每针一次
+    public static void PreTick(GameContext ctx, float dt) {
 
+    }
+
+    public static void LateTick(GameContext ctx, float dt) {
+        UIApp.Panel_HeartInfo_Updata(ctx.uiContext, 4);
     }
 
     static void CheckGround(RoleEntity role) {
@@ -74,7 +77,7 @@ public static class GameBusiness {
         if (hits != null) {
             for (int i = 0; i < hits.Length; i++) {
                 var hit = hits[i];
-                if (hit.collider.CompareTag("Ground")||hit.collider.CompareTag("Ruler")) {
+                if (hit.collider.CompareTag("Ground") || hit.collider.CompareTag("Ruler")) {
 
                     role.SetGround(true);
                     break;

@@ -51,6 +51,8 @@ public class ClientMain : MonoBehaviour {
         // // === Phase : Input===
         ModuleInput input = ctx.moduleInput;
 
+        GameBusiness.PreTick(ctx.gameContext, dt);
+
         if (status == GameFSMStatus.Login) {
 
 
@@ -74,12 +76,14 @@ public class ClientMain : MonoBehaviour {
 
         }
 
+        // GameBusiness.LateTick(ctx.gameContext, dt);
+
 
     }
     void FixedTick(float dt) {
         // === Phase:Logic===
         GameBusiness.FixedTick(ctx.gameContext, dt);
-    
+
         // === phade: Simulate===
         Physics.Simulate(dt);
     }

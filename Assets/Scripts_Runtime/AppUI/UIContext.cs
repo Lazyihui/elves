@@ -5,6 +5,8 @@ public class UIContext {
 
     public Panel_Login Panel_Login;
 
+    public Panel_HeartInfo  panel_HeartInfo;
+
     public Canvas screenCanvas;
 
     public AssetsContext assetsContext;
