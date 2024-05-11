@@ -30,6 +30,32 @@ public static class UIApp {
         }
     }
 
+    // panel_Over
+    public static void Panel_Over_Open(UIContext ctx) {
+        Panel_Over panel = ctx.Panel_Over;
+        if (panel == null) {
+            bool has = ctx.assetsContext.TryGetPanel("Panel_Over", out GameObject prefab);
+            if (has == false) {
+                Debug.LogError("Panel_Over==null");
+                return;
+            }
+            panel = GameObject.Instantiate(prefab, ctx.screenCanvas.transform).GetComponent<Panel_Over>();
+            panel.Ctor();
+            panel.OnStartClickHandle = () => {
+                ctx.uIEvents.Over_RestartGame();
+            };
+            ctx.Panel_Over = panel;
+        }
+        panel.Show();
+    }
+
+    public static void Panel_Over_Close(UIContext ctx) {
+        Panel_Over panel = ctx.Panel_Over;
+        if (panel != null) {
+            panel.close();
+        }
+    }
+
     // panel_HeartInfo
     public static void Panel_HeartInfo_Open(UIContext ctx, int hp) {
         Panel_HeartInfo panel = ctx.panel_HeartInfo;

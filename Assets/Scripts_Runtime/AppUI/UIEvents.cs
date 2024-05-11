@@ -8,4 +8,13 @@ public class UIEvents {
         }
     }
 
+    public Action Over_RestartGameHandle;
+
+    public void Over_RestartGame() {
+        if (Over_RestartGameHandle != null) {
+            Over_RestartGameHandle.Invoke();
+        }
+    }
+
+
 }

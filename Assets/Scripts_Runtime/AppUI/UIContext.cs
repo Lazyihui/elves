@@ -7,6 +7,8 @@ public class UIContext {
 
     public Panel_HeartInfo  panel_HeartInfo;
 
+    public Panel_Over Panel_Over;
+
     public Canvas screenCanvas;
 
     public AssetsContext assetsContext;

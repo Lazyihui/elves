@@ -64,6 +64,10 @@ public static class GameBusiness {
             // 这应该有错 多几个TM可能会有问题
             RulerDomain.RulerFade(ctx, ruler, role, dt);
         }
+        // 游戏结束
+        if (role.hp <= 0) {
+            UIApp.Panel_Over_Open(ctx.uiContext);
+        }
 
     }
     // 每针一次

@@ -35,9 +35,15 @@ public class ClientMain : MonoBehaviour {
     void Binding() {
 
         var uIEvents = ctx.uiContext.uIEvents;
-
+        // 开始游戏
         uIEvents.Login_StartGameHandle = () => {
             UIApp.Panel_Login_Close(ctx.uiContext);
+            GameBusiness.Enter(ctx.gameContext);
+            ctx.status = GameFSMStatus.Game;
+        };
+        // 重新开始游戏
+        uIEvents.Over_RestartGameHandle = () => {
+            UIApp.Panel_Over_Close(ctx.uiContext);
             GameBusiness.Enter(ctx.gameContext);
             ctx.status = GameFSMStatus.Game;
         };
@@ -76,6 +82,8 @@ public class ClientMain : MonoBehaviour {
             }
 
             GameBusiness.LateTick(ctx.gameContext, dt);
+
+            
 
 
         } else if (status == GameFSMStatus.Pause) {
