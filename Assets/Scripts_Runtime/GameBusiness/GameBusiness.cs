@@ -66,7 +66,10 @@ public static class GameBusiness {
         }
         // 游戏结束
         if (role.hp <= 0) {
+            GameFSMStatus status = ctx.status;
+            status = GameFSMStatus.Over;
             UIApp.Panel_Over_Open(ctx.uiContext);
+            
         }
 
     }

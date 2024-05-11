@@ -83,15 +83,16 @@ public class ClientMain : MonoBehaviour {
 
             GameBusiness.LateTick(ctx.gameContext, dt);
 
-            
+
 
 
         } else if (status == GameFSMStatus.Pause) {
             // 在暂停游戏的时候
 
-        } else if (status == GameFSMStatus.Over)
+        } else if (status == GameFSMStatus.Over) {
+            // 游戏结束
+        }
 
-            GameBusiness.LateTick(ctx.gameContext, dt);
 
 
     }

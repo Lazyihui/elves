@@ -31,6 +31,8 @@ public class GameContext {
 
     public int landID;
 
+    public GameFSMStatus status;
+
     public GameContext() {
         roleRespository = new RoleRespository();
         bookRepository = new BookRepository();
@@ -44,11 +46,12 @@ public class GameContext {
         landID = 0;
     }
 
-    public void Inject(AssetsContext assetsContext, ModuleInput moduleInput, TemplateContext templateContext, UIContext uIContext) {
+    public void Inject(AssetsContext assetsContext, ModuleInput moduleInput, TemplateContext templateContext, UIContext uIContext,GameFSMStatus status) {
         this.assetsContext = assetsContext;
         this.moduleInput = moduleInput;
         this.templateContext = templateContext;
         this.uiContext = uIContext;
+        this.status = status;
 
     }
 }

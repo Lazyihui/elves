@@ -24,6 +24,9 @@ public class Panel_HeartInfo : MonoBehaviour {
         if (diff < 0) {
             // 倒序遍历
             for (int i = -diff; i >= 0; i--) {
+                if (elements.Count == 0) {
+                    break;
+                }
                 Image ele = elements[elements.Count - 1];
                 elements.RemoveAt(elements.Count - 1);
                 GameObject.Destroy(ele.gameObject);

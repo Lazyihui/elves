@@ -24,7 +24,7 @@ public class Context {
     }
     public void Inject(Canvas screenCanvas) {
         uiContext.Inject(screenCanvas, assetsContext);
-        gameContext.Inject(assetsContext, moduleInput, templateContext,uiContext);
+        gameContext.Inject(assetsContext, moduleInput, templateContext,uiContext,status);
     }
 }
 
