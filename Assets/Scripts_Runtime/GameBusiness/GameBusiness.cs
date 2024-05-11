@@ -88,7 +88,6 @@ public static class GameBusiness {
             for (int i = 0; i < hits.Length; i++) {
                 var hit = hits[i];
                 if (hit.collider.CompareTag("Ground") || hit.collider.CompareTag("Ruler")) {
-
                     role.SetGround(true);
                     break;
                 }

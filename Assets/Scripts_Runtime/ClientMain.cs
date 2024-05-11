@@ -51,12 +51,15 @@ public class ClientMain : MonoBehaviour {
         // // === Phase : Input===
         ModuleInput input = ctx.moduleInput;
 
-        GameBusiness.PreTick(ctx.gameContext, dt);
-
+        // 在登入页的时候
         if (status == GameFSMStatus.Login) {
 
 
+            // 在开始游戏的时候
         } else if (status == GameFSMStatus.Game) {
+
+            GameBusiness.PreTick(ctx.gameContext, dt);
+
 
             input.ProcessMoveAxis();
             //=== Phase : Login===
@@ -71,19 +74,25 @@ public class ClientMain : MonoBehaviour {
                 FixedTick(restDT);
                 restDT = 0;
             }
+
+            GameBusiness.LateTick(ctx.gameContext, dt);
+
+
         } else if (status == GameFSMStatus.Pause) {
+            // 在暂停游戏的时候
 
+        } else if (status == GameFSMStatus.Over)
 
-        }
-
-        // GameBusiness.LateTick(ctx.gameContext, dt);
+            GameBusiness.LateTick(ctx.gameContext, dt);
 
 
     }
+
+
+
     void FixedTick(float dt) {
         // === Phase:Logic===
         GameBusiness.FixedTick(ctx.gameContext, dt);
-
         // === phade: Simulate===
         Physics.Simulate(dt);
     }

@@ -5,4 +5,6 @@ public enum GameFSMStatus{
     Game,
     Pause,
 
+    Over,
+
 }
