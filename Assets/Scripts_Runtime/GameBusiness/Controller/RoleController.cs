@@ -90,10 +90,12 @@ public static class RoleController {
         }
 
         role.die_maintainTime -= dt;
-        Debug.Log(role.die_maintainTime);
         if (role.die_maintainTime <= 0) {
             Debug.Log("Die");
             role.transform.position = new Vector2(-4, 0);
+            Debug.Log(role.hp);
+            role.hp -= 1;
+            Debug.Log(role.hp);
             role.Enter_Idle();
         }
     }

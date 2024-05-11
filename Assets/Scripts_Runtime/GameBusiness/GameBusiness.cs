@@ -24,8 +24,13 @@ public static class GameBusiness {
 
         // land
         LandDomain.Spawn(ctx, 1, 0);
-
-        UIApp.Panel_HeartInfo_Open(ctx.uiContext, 4);
+        // UI
+        bool hasRole = ctx.roleRespository.TryGet(ctx.roleID, out RoleEntity role);
+        if (!hasRole) {
+            Debug.LogError("role ==null");
+            return;
+        }
+        UIApp.Panel_HeartInfo_Open(ctx.uiContext, role.hp);
 
 
     }
@@ -67,7 +72,12 @@ public static class GameBusiness {
     }
 
     public static void LateTick(GameContext ctx, float dt) {
-        UIApp.Panel_HeartInfo_Updata(ctx.uiContext, 4);
+        bool hasRole = ctx.roleRespository.TryGet(ctx.roleID, out RoleEntity role);
+        if (!hasRole) {
+            Debug.LogError("role ==null");
+            return;
+        }
+        UIApp.Panel_HeartInfo_Updata(ctx.uiContext, role.hp);
     }
 
     static void CheckGround(RoleEntity role) {
