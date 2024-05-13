@@ -53,24 +53,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - TM_Book
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d92e2033b42439741a2883bc31adefe9
-    m_Address: TM_Book_1 4
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - TM_Book
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d07eb48255ad3ff47b3b5cd08c8c5f8b
-    m_Address: TM_Book_1 3
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - TM_Book
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 76dd10468025636408b405c278fd6279
-    m_Address: TM_Book_1 2
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - TM_Book
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 354ef6e7566c113409a3f5363eb75619
     m_Address: TM_Book_1 1
     m_ReadOnly: 0
@@ -103,12 +85,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f22c307357dabc34289723717b029636
     m_Address: TM_Book_1 14
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - TM_Book
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 98ce626005f895045ade030f15510acc
-    m_Address: TM_Book_1 15
     m_ReadOnly: 0
     m_SerializedLabels:
     - TM_Book

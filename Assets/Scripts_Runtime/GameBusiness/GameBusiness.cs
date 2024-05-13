@@ -8,7 +8,7 @@ public static class GameBusiness {
         RoleDomain.Spawn(ctx, 1, new Vector2(-8.5f, 0));
 
         // Book
-        for (int i = 0; i < 15; i++) {
+        for (int i = 0; i < 12; i++) {
             // 先typeID 再id
             BookDomain.Spawn(ctx, 1, i);
         }
@@ -26,7 +26,7 @@ public static class GameBusiness {
         }
 
         // land
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < 9; i++) {
             LandDomain.Spawn(ctx, 0, i);
         }
         // UI

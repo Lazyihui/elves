@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: TM_Book_1 12
   m_EditorClassIdentifier: 
   typeID: 1
-  id: 12
+  id: 9
   pos: {x: 4.5, y: -5}

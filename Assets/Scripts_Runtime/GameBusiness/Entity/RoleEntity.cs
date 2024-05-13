@@ -63,7 +63,7 @@ public class RoleEntity : MonoBehaviour {
     public void Jump(bool isJumpingKeyDown) {
         if (isJumpingKeyDown && isGrounded) {
             Vector2 velo = rb.velocity;
-            velo.y = 7;
+            velo.y = 6.5f;
             rb.velocity = velo;
             isGrounded = false;
         }
