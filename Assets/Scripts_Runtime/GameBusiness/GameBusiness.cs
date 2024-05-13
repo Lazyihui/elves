@@ -5,7 +5,7 @@ public static class GameBusiness {
 
     public static void Enter(GameContext ctx) {
         // Role
-        RoleDomain.Spawn(ctx, 1, new Vector2(-4, 0));
+        RoleDomain.Spawn(ctx, 1, new Vector2(-8, 0));
 
         // Land
         for (int i = 0; i < 16; i++) {
@@ -23,7 +23,9 @@ public static class GameBusiness {
         RulerDomain.Spawn(ctx, 1, 0);
 
         // land
-        LandDomain.Spawn(ctx, 1, 0);
+        for (int i = 0; i < 3; i++) {
+            LandDomain.Spawn(ctx, 0, i);
+        }
         // UI
         bool hasRole = ctx.roleRespository.TryGet(ctx.roleID, out RoleEntity role);
         if (!hasRole) {
@@ -69,7 +71,7 @@ public static class GameBusiness {
             GameFSMStatus status = ctx.status;
             status = GameFSMStatus.Over;
             UIApp.Panel_Over_Open(ctx.uiContext);
-            
+
         }
 
     }

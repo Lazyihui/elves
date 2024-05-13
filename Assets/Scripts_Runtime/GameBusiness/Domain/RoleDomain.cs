@@ -40,7 +40,7 @@ public static class RoleDomain {
 
     static void OnCollisionEnter(RoleEntity role, Collision2D other) {
 
-        if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("Ruler")) {
+        if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("Ruler")||other.gameObject.CompareTag("Land")) {
             role.SetGround(true);
         }
         if (other.gameObject.CompareTag("Ruler")) {
