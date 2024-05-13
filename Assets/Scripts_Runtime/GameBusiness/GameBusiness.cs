@@ -5,10 +5,10 @@ public static class GameBusiness {
 
     public static void Enter(GameContext ctx) {
         // Role
-        RoleDomain.Spawn(ctx, 1, new Vector2(-8, 0));
+        RoleDomain.Spawn(ctx, 1, new Vector2(-8.5f, 0));
 
         // Land
-        for (int i = 0; i < 16; i++) {
+        for (int i = 0; i < 15; i++) {
             // 先typeID 再id
             BookDomain.Spawn(ctx, 1, i);
         }
@@ -20,10 +20,13 @@ public static class GameBusiness {
         }
 
         // ruler
-        RulerDomain.Spawn(ctx, 1, 0);
+        for (int i = 0; i < 2; i++) {
+            RulerDomain.Spawn(ctx, 0, i);
+
+        }
 
         // land
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 8; i++) {
             LandDomain.Spawn(ctx, 0, i);
         }
         // UI

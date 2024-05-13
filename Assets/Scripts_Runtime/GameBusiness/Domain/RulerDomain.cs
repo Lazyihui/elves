@@ -60,9 +60,7 @@ public static class RulerDomain {
 
             bool has = ctx.rulerRepository.TryGet(role.rulerID, out RulerEntity rulerEntity);
             if (has) {
-                Debug.Log("没找到对应的ruler" + role.rulerID);
                 ruler.fadeTimer -= dt;
-                Debug.Log(ruler.fadeTimer);
                 if (ruler.fadeTimer < 0) {
                     RulerDomain.Show(ctx, ruler);
                     ruler.fadeTimer = ruler.fade;

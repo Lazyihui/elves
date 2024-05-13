@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f9695edeefe8c654187f7db6fac73af6, type: 3}
-  m_Name: TM_Ruler
+  m_Name: TM_Ruler 3
   m_EditorClassIdentifier: 
   typeID: 0
-  id: 0
-  maintainterTimer: 3
-  maintain: 3
+  id: 3
+  maintainterTimer: 1
+  maintain: 1
   fadeTimer: 2
   fade: 2
   pos: {x: -1, y: -3.5}

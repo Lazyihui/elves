@@ -92,7 +92,7 @@ public static class RoleController {
         role.die_maintainTime -= dt;
         if (role.die_maintainTime <= 0) {
             Debug.Log("Die");
-            role.transform.position = new Vector2(-4, 0);
+            role.transform.position = new Vector2(-8.5f, 0);
             // 扣血
             role.hp -= 1;
             role.Enter_Idle();
