@@ -43,6 +43,7 @@ public class ClientMain : MonoBehaviour {
         };
         // 重新开始游戏
         uIEvents.Over_RestartGameHandle = () => {
+            
             UIApp.Panel_Over_Close(ctx.uiContext);
             GameBusiness.Enter(ctx.gameContext);
             ctx.status = GameFSMStatus.Game;

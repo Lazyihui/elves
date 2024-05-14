@@ -9,7 +9,7 @@ public static class GameBusiness {
 
         // UI
         UIApp.Panel_HeartInfo_Open(ctx.uiContext, role.hp);
-        
+
         // Book
         for (int i = 0; i < 12; i++) {
             // 先typeID 再id
@@ -36,6 +36,17 @@ public static class GameBusiness {
 
 
 
+    }
+
+
+    public static void Exit(GameContext ctx) {
+        // 清理
+        ctx.roleRespository.Clear();
+        // ctx.bookRepository.Clear();
+        // ctx.stabRepository.Clear();
+        // ctx.rulerRepository.Clear();
+        // ctx.landRepository.Clear();
+        // ctx.mstRepository.Clear();
     }
     // 多次
     public static void FixedTick(GameContext ctx, float dt) {
@@ -69,6 +80,7 @@ public static class GameBusiness {
         if (role.hp <= 0) {
             GameFSMStatus status = ctx.status;
             status = GameFSMStatus.Over;
+            GameBusiness.Exit(ctx);
             UIApp.Panel_Over_Open(ctx.uiContext);
         }
         // for 所有的mst

@@ -42,4 +42,10 @@ public class RoleRespository {
         }
     }
 
+    public void Clear() {
+        foreach (var item in all.Values) {
+            Remove(item);
+        }
+    }
+
 }
