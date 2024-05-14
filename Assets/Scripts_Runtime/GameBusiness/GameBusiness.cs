@@ -74,7 +74,7 @@ public static class GameBusiness {
         int mstLen = ctx.mstRepository.TakeAll(out MstEntity[] msts);
         for (int i = 0; i < mstLen; i++) {
             MstEntity mst = msts[i];
-            MstDomain.Move(mst, 10, -10, dt);
+            MstDomain.Move(mst, -1.2f, -3.2f, dt);
         }
 
     }
