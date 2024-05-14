@@ -55,6 +55,7 @@ public static class GameBusiness {
 
         // for role 就一个
         RoleDomain.OverLapStab(ctx, role);
+        RoleDomain.OverLapMst(ctx, role);
 
         // ruler
         int rulerLen = ctx.rulerRepository.TakeAll(out RulerEntity[] rulers);

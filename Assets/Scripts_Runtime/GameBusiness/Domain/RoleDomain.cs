@@ -40,7 +40,7 @@ public static class RoleDomain {
 
     static void OnCollisionEnter(RoleEntity role, Collision2D other) {
 
-        if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("Ruler")||other.gameObject.CompareTag("Land")) {
+        if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("Ruler") || other.gameObject.CompareTag("Land")) {
             role.SetGround(true);
         }
         if (other.gameObject.CompareTag("Ruler")) {
@@ -79,6 +79,19 @@ public static class RoleDomain {
             }
         });
 
+    }
+
+    public static void OverLapMst(GameContext ctx, RoleEntity role) {
+        MstEntity target = ctx.mstRepository.Find((mst) => {
+            float dirSqr = Vector2.SqrMagnitude(mst.transform.position - role.transform.position);
+            if (dirSqr < 1.0f) {
+                role.isDie = true;
+                return true;
+            } else {
+                return false;
+            }
+
+        });
     }
 
     // public static void OverLapCircle(GameContext ctx, Vector2 pos, float radius) {
