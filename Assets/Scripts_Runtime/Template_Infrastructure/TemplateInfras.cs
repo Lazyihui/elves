@@ -56,6 +56,16 @@ public class TemplateInfras {
             ctx.landPtr = ptr;
 
         }
+        {
+            AssetLabelReference labelReference = new AssetLabelReference();
+            labelReference.labelString = "TM_Mst";
+            var ptr = Addressables.LoadAssetsAsync<MstTM>(labelReference, null);
+            var list = ptr.WaitForCompletion();
+            foreach (var go in list) {
+                ctx.msts.Add(go.id, go);
+            }
+            ctx.mstPtr = ptr;
+        }
 
     }
 
@@ -71,6 +81,9 @@ public class TemplateInfras {
         }
         if (ctx.landPtr.IsValid()) {
             Addressables.Release(ctx.landPtr);
+        }
+        if (ctx.mstPtr.IsValid()) {
+            Addressables.Release(ctx.mstPtr);
         }
 
     }

@@ -14,12 +14,15 @@ public class TemplateContext {
 
     public Dictionary<int, LandTM> lands;
 
+    public Dictionary<int, MstTM> msts;
+
     public AsyncOperationHandle bookPtr;
 
     public AsyncOperationHandle stabPtr;
 
     public AsyncOperationHandle rulerPtr;
     public AsyncOperationHandle landPtr;
+    public AsyncOperationHandle mstPtr;
 
 
 
@@ -28,6 +31,7 @@ public class TemplateContext {
         stabs = new Dictionary<int, StabTM>();
         rulers = new Dictionary<int, RulerTM>();
         lands = new Dictionary<int, LandTM>();
+        msts = new Dictionary<int, MstTM>();
     }
 
 

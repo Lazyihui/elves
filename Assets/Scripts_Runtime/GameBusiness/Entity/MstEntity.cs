@@ -1,8 +1,12 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MstEntity : MonoBehaviour {
     [SerializeField] Rigidbody2D rb;
+
+    [SerializeField] SpriteRenderer spriteRenderer;
+
 
     public int typeID;
 
@@ -14,18 +18,11 @@ public class MstEntity : MonoBehaviour {
 
     public void Ctor() { }
 
-    public void Move() { 
+    public void Init(Sprite sprite) {
+        spriteRenderer.sprite = sprite;
     }
 
-    //    public void Move(Vector2 MoveAxis, float moveSpeed, float dt) {
-    //     var velo = rb.velocity;
-    //     velo.x = MoveAxis.x * moveSpeed;
-    //     rb.velocity = velo;
-    //     if (MoveAxis.x > 0) {
-    //         this.transform.localScale = new Vector3(1, 1, 1);
-    //     } else if (MoveAxis.x < 0) {
-    //         this.transform.localScale = new Vector3(-1, 1, 1);
-    //     }
-    // }
+    public void Move() {
+    }
 
 }

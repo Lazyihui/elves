@@ -19,6 +19,8 @@ public class GameContext {
     public RulerRepository rulerRepository;
 
     public LandRepository landRepository;
+
+    public MstRepository mstRepository;
     public TemplateContext templateContext;
 
     public UIContext uiContext;
@@ -31,6 +33,8 @@ public class GameContext {
 
     public int landID;
 
+    public int mstID;
+
     public GameFSMStatus status;
 
     public GameContext() {
@@ -39,14 +43,16 @@ public class GameContext {
         stabRepository = new StabRepository();
         rulerRepository = new RulerRepository();
         landRepository = new LandRepository();
+        mstRepository = new MstRepository();
         roleID = 0;
         bookID = 0;
         stabID = 0;
         rulerID = 0;
         landID = 0;
+        mstID = 0;
     }
 
-    public void Inject(AssetsContext assetsContext, ModuleInput moduleInput, TemplateContext templateContext, UIContext uIContext,GameFSMStatus status) {
+    public void Inject(AssetsContext assetsContext, ModuleInput moduleInput, TemplateContext templateContext, UIContext uIContext, GameFSMStatus status) {
         this.assetsContext = assetsContext;
         this.moduleInput = moduleInput;
         this.templateContext = templateContext;

@@ -29,6 +29,9 @@ public static class GameBusiness {
         for (int i = 0; i < 9; i++) {
             LandDomain.Spawn(ctx, 0, i);
         }
+
+        // mst
+        MstDomain.Spawn(ctx, 0);
         // UI
         bool hasRole = ctx.roleRespository.TryGet(ctx.roleID, out RoleEntity role);
         if (!hasRole) {
