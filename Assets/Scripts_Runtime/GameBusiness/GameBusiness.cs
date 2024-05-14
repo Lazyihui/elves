@@ -5,14 +5,16 @@ public static class GameBusiness {
 
     public static void Enter(GameContext ctx) {
         // Role
-        RoleDomain.Spawn(ctx, 1, new Vector2(-8.5f, 0));
+        RoleEntity role = RoleDomain.Spawn(ctx, 1, new Vector2(-8.5f, 0));
 
+        // UI
+        UIApp.Panel_HeartInfo_Open(ctx.uiContext, role.hp);
+        
         // Book
         for (int i = 0; i < 12; i++) {
             // 先typeID 再id
             BookDomain.Spawn(ctx, 1, i);
         }
-
 
         // 地刺stab
         for (int i = 0; i < 8; i++) {
@@ -22,7 +24,6 @@ public static class GameBusiness {
         // ruler
         for (int i = 0; i < 2; i++) {
             RulerDomain.Spawn(ctx, 0, i);
-
         }
 
         // land
@@ -31,14 +32,8 @@ public static class GameBusiness {
         }
 
         // mst
-        MstDomain.Spawn(ctx, 0);
-        // UI
-        bool hasRole = ctx.roleRespository.TryGet(ctx.roleID, out RoleEntity role);
-        if (!hasRole) {
-            Debug.LogError("role ==null");
-            return;
-        }
-        UIApp.Panel_HeartInfo_Open(ctx.uiContext, role.hp);
+        MstEntity mst = MstDomain.Spawn(ctx, 0);
+
 
 
     }
@@ -55,9 +50,6 @@ public static class GameBusiness {
         }
 
         RoleController.Tick(ctx, role, input.moveAxis, dt);
-
-        // CheckGround(role);
-        // CheckGround(role);
 
         // role.Move(input.moveAxis, dt);
 
@@ -77,7 +69,12 @@ public static class GameBusiness {
             GameFSMStatus status = ctx.status;
             status = GameFSMStatus.Over;
             UIApp.Panel_Over_Open(ctx.uiContext);
-
+        }
+        // for 所有的mst
+        int mstLen = ctx.mstRepository.TakeAll(out MstEntity[] msts);
+        for (int i = 0; i < mstLen; i++) {
+            MstEntity mst = msts[i];
+            MstDomain.Move(mst, 10, -10, dt);
         }
 
     }

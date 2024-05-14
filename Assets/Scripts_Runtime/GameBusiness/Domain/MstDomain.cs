@@ -14,9 +14,15 @@ public static class MstDomain {
         mst.Ctor();
         mst.Init(tm.sprite);
         mst.typeID = tm.typeID;
-        mst.id = ctx.bookID++;
+        mst.moveSpeed = tm.moveSpeed;
+        mst.id = ctx.mstID++;
+        mst.isMoveRight = true;
         mst.transform.position = tm.pos;
         ctx.mstRepository.Add(mst);
         return mst;
+    }
+
+    public static void Move(MstEntity mst, float rightBoundary, float leftBoundary, float dt) {
+        mst.Move(rightBoundary, leftBoundary, dt);
     }
 }

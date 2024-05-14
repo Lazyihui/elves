@@ -7,6 +7,8 @@ public class MstTM : ScriptableObject {
     public int typeID;
     public int id;
 
+    public float moveSpeed;
+
     public Vector2 pos;
     public Sprite sprite;
 

@@ -3,7 +3,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class MstEntity : MonoBehaviour {
-    [SerializeField] Rigidbody2D rb;
 
     [SerializeField] SpriteRenderer spriteRenderer;
 
@@ -14,6 +13,8 @@ public class MstEntity : MonoBehaviour {
 
     public float moveSpeed;
 
+    public bool isMoveRight;
+
     public MstEntity() { }
 
     public void Ctor() { }
@@ -22,7 +23,21 @@ public class MstEntity : MonoBehaviour {
         spriteRenderer.sprite = sprite;
     }
 
-    public void Move() {
-    }
+    public void Move( float right, float left,float dt) {
 
+        if (isMoveRight) {
+            transform.Translate(Vector2.right * moveSpeed * dt);
+            if (transform.position.x > right) {
+                isMoveRight = false;
+            }
+        } else {
+            transform.Translate(Vector2.left * moveSpeed * dt);
+            if (transform.position.x < left) {
+                isMoveRight = true;
+            }
+
+
+        }
+
+    }
 }
