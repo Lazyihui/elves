@@ -9,6 +9,8 @@ public class UIContext {
 
     public Panel_Over Panel_Over;
 
+    public Panel_Win panel_Win;
+
     public Canvas screenCanvas;
 
     public AssetsContext assetsContext;

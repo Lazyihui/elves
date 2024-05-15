@@ -89,6 +89,21 @@ public static class UIApp {
             panel.Close();
         }
     }
+    // panel_Win
 
+    public static void Panel_Win_Open(UIContext ctx) {
+        Panel_Win panel = ctx.panel_Win;
+        if (panel == null) {
+            bool has = ctx.assetsContext.TryGetPanel("Panel_Win", out GameObject prefab);
+            if (!has) {
+                Debug.LogError("Panel==Null");
+                return;
+            }
+            panel = GameObject.Instantiate(prefab, ctx.screenCanvas.transform).GetComponent<Panel_Win>();
+            panel.Ctor();
+            ctx.panel_Win = panel;
+        }
+        panel.Show();
+    }
 
 }

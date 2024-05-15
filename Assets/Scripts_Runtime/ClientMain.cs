@@ -97,6 +97,10 @@ public class ClientMain : MonoBehaviour {
                 UIApp.Panel_Over_Open(ctx.uiContext);
             }
 
+            if (role.isWin) { 
+                UIApp.Panel_Win_Open(ctx.uiContext);
+            }
+
 
         } else if (ctx.status == GameFSMStatus.Pause) {
             // 在暂停游戏的时候

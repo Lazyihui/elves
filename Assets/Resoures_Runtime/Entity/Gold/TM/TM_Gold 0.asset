@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeID: 0
   id: 0
-  pos: {x: 0, y: 0}
+  pos: {x: 2, y: 0}
   sprite: {fileID: 8388207307120750826, guid: c173aebe43332e7489209cbdce096d65, type: 3}
   isWin: 0
   ishp: 1
