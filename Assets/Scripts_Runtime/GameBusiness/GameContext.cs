@@ -21,6 +21,8 @@ public class GameContext {
     public LandRepository landRepository;
 
     public MstRepository mstRepository;
+
+    public GoldRepository goldRepository;
     public TemplateContext templateContext;
 
     public UIContext uiContext;
@@ -35,6 +37,8 @@ public class GameContext {
 
     public int mstID;
 
+    public int goldID;
+
     public GameFSMStatus status;
 
     public GameContext() {
@@ -44,12 +48,14 @@ public class GameContext {
         rulerRepository = new RulerRepository();
         landRepository = new LandRepository();
         mstRepository = new MstRepository();
+        goldRepository = new GoldRepository();
         roleID = 0;
         bookID = 0;
         stabID = 0;
         rulerID = 0;
         landID = 0;
         mstID = 0;
+        goldID = 0;
     }
 
     public void Inject(AssetsContext assetsContext, ModuleInput moduleInput, TemplateContext templateContext, UIContext uIContext, GameFSMStatus status) {

@@ -34,6 +34,9 @@ public static class GameBusiness {
         // mst
         MstEntity mst = MstDomain.Spawn(ctx, 0);
 
+        // gold
+        GoldDomain.Spawn(ctx, 0);
+
 
     }
 
@@ -93,8 +96,6 @@ public static class GameBusiness {
         if (role.hp <= 0) {
             Debug.Log("1111");
             ctx.status = GameFSMStatus.Over;
-            Debug.Log(
-                ctx.status);
             GameBusiness.Exit(ctx);
             UIApp.Panel_Over_Open(ctx.uiContext);
         }
@@ -130,11 +131,11 @@ public static class GameBusiness {
     }
 
     public static void LateTick(GameContext ctx, float dt) {
-        bool hasRole = ctx.roleRespository.TryGet(ctx.roleID, out RoleEntity role);
-        if (!hasRole) {
-            // Debug.LogError("role ==null");
-            return;
-        }
+        // bool hasRole = ctx.roleRespository.TryGet(ctx.roleID, out RoleEntity role);
+        // if (!hasRole) {
+        //     // Debug.LogError("role ==null");
+        //     return;
+        // }
 
     }
 

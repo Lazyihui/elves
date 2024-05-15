@@ -41,6 +41,8 @@ public class RoleEntity : MonoBehaviour {
     public int rulerID;
 
     public bool isRoleHadNoStanding;
+    // 胜利
+    public bool isWin;
 
     public RoleEntity() { }
 

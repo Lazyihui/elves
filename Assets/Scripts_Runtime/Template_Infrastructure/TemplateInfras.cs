@@ -66,6 +66,16 @@ public class TemplateInfras {
             }
             ctx.mstPtr = ptr;
         }
+        {
+            AssetLabelReference labelReference = new AssetLabelReference();
+            labelReference.labelString = "TM_Gold";
+            var ptr = Addressables.LoadAssetsAsync<GoldTM>(labelReference, null);
+            var list = ptr.WaitForCompletion();
+            foreach (var go in list) {
+                ctx.golds.Add(go.id, go);
+            }
+            ctx.goldPtr = ptr;
+        }
 
     }
 
@@ -84,6 +94,9 @@ public class TemplateInfras {
         }
         if (ctx.mstPtr.IsValid()) {
             Addressables.Release(ctx.mstPtr);
+        }
+        if (ctx.goldPtr.IsValid()) {
+            Addressables.Release(ctx.goldPtr);
         }
 
     }

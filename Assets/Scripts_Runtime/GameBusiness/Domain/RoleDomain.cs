@@ -18,6 +18,7 @@ public static class RoleDomain {
         role.hp = 2;
         role.isDie = false;
         role.isRoleHadNoStanding = false;
+        role.isWin = false;
         role.Enter_Idle();
 
         // ruler

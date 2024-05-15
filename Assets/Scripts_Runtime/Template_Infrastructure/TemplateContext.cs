@@ -16,6 +16,8 @@ public class TemplateContext {
 
     public Dictionary<int, MstTM> msts;
 
+    public Dictionary<int, GoldTM> golds;
+
     public AsyncOperationHandle bookPtr;
 
     public AsyncOperationHandle stabPtr;
@@ -23,6 +25,8 @@ public class TemplateContext {
     public AsyncOperationHandle rulerPtr;
     public AsyncOperationHandle landPtr;
     public AsyncOperationHandle mstPtr;
+
+    public AsyncOperationHandle goldPtr;
 
 
 
@@ -32,6 +36,7 @@ public class TemplateContext {
         rulers = new Dictionary<int, RulerTM>();
         lands = new Dictionary<int, LandTM>();
         msts = new Dictionary<int, MstTM>();
+        golds = new Dictionary<int, GoldTM>();
     }
 
 
