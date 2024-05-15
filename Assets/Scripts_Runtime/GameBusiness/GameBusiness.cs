@@ -36,6 +36,7 @@ public static class GameBusiness {
 
         // gold
         GoldDomain.Spawn(ctx, 0);
+        GoldDomain.Spawn(ctx, 1);
 
 
     }
@@ -106,6 +107,7 @@ public static class GameBusiness {
         // for role 就一个
         RoleDomain.OverLapStab(ctx, role);
         RoleDomain.OverLapMst(ctx, role);
+        RoleDomain.OverLapGold(ctx, role);
 
         // ruler
         int rulerLen = ctx.rulerRepository.TakeAll(out RulerEntity[] rulers);

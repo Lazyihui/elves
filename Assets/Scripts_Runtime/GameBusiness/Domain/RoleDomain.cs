@@ -100,6 +100,25 @@ public static class RoleDomain {
         });
     }
 
+    public static void OverLapGold(GameContext ctx, RoleEntity role) {
+        GoldEntity target = ctx.goldRepository.Find((gold) => {
+            float dirSqr = Vector2.SqrMagnitude(gold.transform.position - role.transform.position);
+            if (dirSqr < 1.0f) {
+                GoldDomain.Unspawn(ctx, gold);
+                if (gold.isWin) {
+                    role.isWin = true;
+                }
+                if(gold.ishp){
+                    role.hp++;
+                }
+                return true;
+            } else {
+                return false;
+            }
+        });
+
+    }
+
     // public static void OverLapCircle(GameContext ctx, Vector2 pos, float radius) {
     //     Collider2D[] colliders = Physics2D.OverlapCircleAll(pos, radius);
     //     foreach (var collider in colliders) {

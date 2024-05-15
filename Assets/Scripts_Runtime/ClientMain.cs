@@ -103,7 +103,6 @@ public class ClientMain : MonoBehaviour {
 
         } else if (ctx.status == GameFSMStatus.Over) {
             // 游戏结束
-            Debug.Log("游戏结束");
         }
 
 

@@ -10,9 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a22372bfd75f534b873c670241d4b9f, type: 3}
-  m_Name: TM_Gold
+  m_Name: TM_Gold 0
   m_EditorClassIdentifier: 
   typeID: 0
   id: 0
   pos: {x: 0, y: 0}
-  sprite: {fileID: 9478795197586167, guid: c173aebe43332e7489209cbdce096d65, type: 3}
+  sprite: {fileID: 8388207307120750826, guid: c173aebe43332e7489209cbdce096d65, type: 3}
+  isWin: 0
+  ishp: 1
