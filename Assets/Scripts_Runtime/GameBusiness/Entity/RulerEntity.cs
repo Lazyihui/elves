@@ -37,4 +37,5 @@ public class RulerEntity : MonoBehaviour {
         this.gameObject.SetActive(true);
     }
 
+
 }

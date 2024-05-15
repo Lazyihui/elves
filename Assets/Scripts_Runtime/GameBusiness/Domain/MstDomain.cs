@@ -25,4 +25,9 @@ public static class MstDomain {
     public static void Move(MstEntity mst, float rightBoundary, float leftBoundary, float dt) {
         mst.Move(rightBoundary, leftBoundary, dt);
     }
+
+    public static void Unspawn(GameContext ctx, MstEntity mst) {
+        ctx.mstRepository.Remove(mst);
+        mst.TearDown();
+    }
 }

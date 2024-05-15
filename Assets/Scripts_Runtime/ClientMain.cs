@@ -54,6 +54,7 @@ public class ClientMain : MonoBehaviour {
     void Update() {
 
         float dt = Time.deltaTime;
+        
         GameFSMStatus status = ctx.status;
         // // === Phase : Input===
         ModuleInput input = ctx.moduleInput;
@@ -64,6 +65,8 @@ public class ClientMain : MonoBehaviour {
 
             // 在开始游戏的时候
         } else if (status == GameFSMStatus.Game) {
+
+            Debug.Log("游戏中");
 
             GameBusiness.PreTick(ctx.gameContext, dt);
 
@@ -92,6 +95,7 @@ public class ClientMain : MonoBehaviour {
 
         } else if (status == GameFSMStatus.Over) {
             // 游戏结束
+            Debug.Log("游戏结束");
         }
 
 

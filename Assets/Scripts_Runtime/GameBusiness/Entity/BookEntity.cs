@@ -12,7 +12,9 @@ public class BookEntity : MonoBehaviour {
     }
 
     public void Ctor() { }
-
+    public void TearDown() {
+        GameObject.Destroy(this.gameObject);
+     }
 
 
 }

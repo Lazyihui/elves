@@ -25,4 +25,9 @@ public static class StabDomain {
         return stab;
     }
 
+    public static void Unspawn(GameContext ctx, StabEntity stab) {
+        ctx.stabRepository.Remove(stab);
+        stab.TearDown();
+    }
+
 }

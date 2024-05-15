@@ -90,6 +90,10 @@ public class RoleEntity : MonoBehaviour {
         run_isEntering = true;
     }
     // 赢碰撞F
+
+    public void TearDown() {
+        GameObject.Destroy(this.gameObject);
+    }
     void OnCollisionEnter2D(Collision2D other) {
         OnCollisionEnterHandle.Invoke(this, other);
     }

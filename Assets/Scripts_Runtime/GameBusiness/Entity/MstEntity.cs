@@ -35,9 +35,10 @@ public class MstEntity : MonoBehaviour {
             if (transform.position.x < left) {
                 isMoveRight = true;
             }
-
-
         }
+    }
 
+    public void TearDown(){
+        GameObject.Destroy(this.gameObject);
     }
 }

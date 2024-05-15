@@ -15,7 +15,7 @@ public static class RoleDomain {
         role.id = ID;//先这样写
         role.transform.position = pos;
         role.moveSpeed = 3;
-        role.hp = 4;
+        role.hp = 2;
         role.isDie = false;
         role.isRoleHadNoStanding = false;
         role.Enter_Idle();
@@ -36,6 +36,11 @@ public static class RoleDomain {
 
 
         return role;
+    }
+
+    public static void Unspawn(GameContext ctx, RoleEntity role) {
+        ctx.roleRespository.Remove(role);
+        role.TearDown();
     }
 
     static void OnCollisionEnter(RoleEntity role, Collision2D other) {

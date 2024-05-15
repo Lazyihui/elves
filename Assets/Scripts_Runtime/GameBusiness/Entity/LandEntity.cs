@@ -13,6 +13,7 @@ public class LandEntity : MonoBehaviour {
 
     public void Ctor() { }
 
-
-
+    public void TearDown() {
+        GameObject.Destroy(this.gameObject);
+     }
 }

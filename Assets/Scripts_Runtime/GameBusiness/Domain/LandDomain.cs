@@ -18,4 +18,9 @@ public static class LandDomain{
         ctx.landRepository.Add(land);
         return land;
     }
+
+    public static void Unspawn(GameContext ctx, LandEntity land){
+        ctx.landRepository.Remove(land);
+        land.TearDown();
+    }
 }

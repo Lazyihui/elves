@@ -35,18 +35,47 @@ public static class GameBusiness {
         MstEntity mst = MstDomain.Spawn(ctx, 0);
 
 
-
     }
 
 
     public static void Exit(GameContext ctx) {
-        // 清理
-        ctx.roleRespository.Clear();
-        // ctx.bookRepository.Clear();
-        // ctx.stabRepository.Clear();
-        // ctx.rulerRepository.Clear();
-        // ctx.landRepository.Clear();
-        // ctx.mstRepository.Clear();
+        // role
+        int roleLen = ctx.roleRespository.TakeAll(out RoleEntity[] roles);
+        for (int i = 0; i < roleLen; i++) {
+            RoleEntity role = roles[i];
+            RoleDomain.Unspawn(ctx, role);
+        }
+        // book
+        int bookLen = ctx.bookRepository.TakeAll(out BookEntity[] books);
+        for (int i = 0; i < bookLen; i++) {
+            BookEntity book = books[i];
+            BookDomain.Unspawn(ctx, book);
+        }
+        // stab
+        int stabLen = ctx.stabRepository.TakeAll(out StabEntity[] stabs);
+        for (int i = 0; i < stabLen; i++) {
+            StabEntity stab = stabs[i];
+            StabDomain.Unspawn(ctx, stab);
+        }
+        // ruler
+        int rulerLen = ctx.rulerRepository.TakeAll(out RulerEntity[] rulers);
+        for (int i = 0; i < rulerLen; i++) {
+            RulerEntity ruler = rulers[i];
+            RulerDomain.UnSpawn(ctx, ruler);
+        }
+        // land
+        int landLen = ctx.landRepository.TakeAll(out LandEntity[] lands);
+        for (int i = 0; i < landLen; i++) {
+            LandEntity land = lands[i];
+            LandDomain.Unspawn(ctx, land);
+        }
+        // mst
+        int mstLen = ctx.mstRepository.TakeAll(out MstEntity[] msts);
+        for (int i = 0; i < mstLen; i++) {
+            MstEntity mst = msts[i];
+            MstDomain.Unspawn(ctx, mst);
+        }
+
     }
     // 多次
     public static void FixedTick(GameContext ctx, float dt) {
@@ -56,7 +85,7 @@ public static class GameBusiness {
         ModuleInput input = ctx.moduleInput;
         bool hasRole = ctx.roleRespository.TryGet(ctx.roleID, out RoleEntity role);
         if (!hasRole) {
-            Debug.LogError("role ==null");
+            Debug.Log("role ==null");
             return;
         }
 
@@ -76,13 +105,7 @@ public static class GameBusiness {
             // 这应该有错 多几个TM可能会有问题
             RulerDomain.RulerFade(ctx, ruler, role, dt);
         }
-        // 游戏结束
-        if (role.hp <= 0) {
-            GameFSMStatus status = ctx.status;
-            status = GameFSMStatus.Over;
-            GameBusiness.Exit(ctx);
-            UIApp.Panel_Over_Open(ctx.uiContext);
-        }
+
         // for 所有的mst
         int mstLen = ctx.mstRepository.TakeAll(out MstEntity[] msts);
         for (int i = 0; i < mstLen; i++) {
@@ -99,10 +122,17 @@ public static class GameBusiness {
     public static void LateTick(GameContext ctx, float dt) {
         bool hasRole = ctx.roleRespository.TryGet(ctx.roleID, out RoleEntity role);
         if (!hasRole) {
-            Debug.LogError("role ==null");
+            Debug.Log("role ==null");
             return;
         }
         UIApp.Panel_HeartInfo_Updata(ctx.uiContext, role.hp);
+        // 游戏结束
+        if (role.hp <= 0) {
+            GameFSMStatus status = ctx.status;
+            status = GameFSMStatus.Over;
+            GameBusiness.Exit(ctx);
+            UIApp.Panel_Over_Open(ctx.uiContext);
+        }
     }
 
     static void CheckGround(RoleEntity role) {

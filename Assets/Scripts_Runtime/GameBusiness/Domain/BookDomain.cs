@@ -19,4 +19,10 @@ public static class BookDomain {
         ctx.bookRepository.Add(book);
         return book;
     }
+
+    public static void Unspawn(GameContext ctx, BookEntity book) {
+
+        ctx.bookRepository.Remove(book);
+        book.TearDown();
+    }
 }
