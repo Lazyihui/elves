@@ -22,6 +22,10 @@ public static class GoldDomain {
         gold.Init(tm.sprite);
         ctx.goldRepository.Add(gold);
         return gold;
+    }
 
+    public static void Unspawn(GameContext ctx, GoldEntity gold) {
+        gold.TearDown();
+        ctx.goldRepository.Remove(gold);
     }
 }

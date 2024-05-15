@@ -43,7 +43,7 @@ public class ClientMain : MonoBehaviour {
         };
         // 重新开始游戏
         uIEvents.Over_RestartGameHandle = () => {
-            
+
             UIApp.Panel_Over_Close(ctx.uiContext);
             GameBusiness.Enter(ctx.gameContext);
             ctx.status = GameFSMStatus.Game;
@@ -85,7 +85,17 @@ public class ClientMain : MonoBehaviour {
 
             GameBusiness.LateTick(ctx.gameContext, dt);
 
-
+            // 这样写是错误的 架构错误 要改
+            bool hasRole = ctx.gameContext.roleRespository.TryGet(ctx.gameContext.roleID, out RoleEntity role);
+            if (!hasRole) {
+                Debug.LogError("role ==null");
+                return;
+            }
+            if (role.hp <= 0) {
+                ctx.status = GameFSMStatus.Over;
+                GameBusiness.Exit(ctx.gameContext);
+                UIApp.Panel_Over_Open(ctx.uiContext);
+            }
 
 
         } else if (ctx.status == GameFSMStatus.Pause) {

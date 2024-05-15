@@ -78,6 +78,12 @@ public static class GameBusiness {
             MstEntity mst = msts[i];
             MstDomain.Unspawn(ctx, mst);
         }
+        // gold
+        int goldLen = ctx.goldRepository.TakeAll(out GoldEntity[] golds);
+        for (int i = 0; i < goldLen; i++) {
+            GoldEntity gold = golds[i];
+            GoldDomain.Unspawn(ctx, gold);
+        }
 
     }
     // 多次
@@ -91,14 +97,7 @@ public static class GameBusiness {
             Debug.LogError("role ==null");
             return;
         }
-        UIApp.Panel_HeartInfo_Updata(ctx.uiContext, role.hp);
-        // 游戏结束
-        if (role.hp <= 0) {
-            Debug.Log("1111");
-            ctx.status = GameFSMStatus.Over;
-            GameBusiness.Exit(ctx);
-            UIApp.Panel_Over_Open(ctx.uiContext);
-        }
+
 
         RoleController.Tick(ctx, role, input.moveAxis, dt);
 
@@ -131,12 +130,12 @@ public static class GameBusiness {
     }
 
     public static void LateTick(GameContext ctx, float dt) {
-        // bool hasRole = ctx.roleRespository.TryGet(ctx.roleID, out RoleEntity role);
-        // if (!hasRole) {
-        //     // Debug.LogError("role ==null");
-        //     return;
-        // }
-
+        bool hasRole = ctx.roleRespository.TryGet(ctx.roleID, out RoleEntity role);
+        if (!hasRole) {
+            // Debug.LogError("role ==null");
+            return;
+        }
+        UIApp.Panel_HeartInfo_Updata(ctx.uiContext, role.hp);
     }
 
     static void CheckGround(RoleEntity role) {
