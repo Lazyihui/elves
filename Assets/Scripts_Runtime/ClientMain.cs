@@ -54,19 +54,17 @@ public class ClientMain : MonoBehaviour {
     void Update() {
 
         float dt = Time.deltaTime;
-        
-        GameFSMStatus status = ctx.status;
+
         // // === Phase : Input===
         ModuleInput input = ctx.moduleInput;
 
         // 在登入页的时候
-        if (status == GameFSMStatus.Login) {
+        if (ctx.status == GameFSMStatus.Login) {
 
 
             // 在开始游戏的时候
-        } else if (status == GameFSMStatus.Game) {
+        } else if (ctx.status == GameFSMStatus.Game) {
 
-            Debug.Log("游戏中");
 
             GameBusiness.PreTick(ctx.gameContext, dt);
 
@@ -90,10 +88,10 @@ public class ClientMain : MonoBehaviour {
 
 
 
-        } else if (status == GameFSMStatus.Pause) {
+        } else if (ctx.status == GameFSMStatus.Pause) {
             // 在暂停游戏的时候
 
-        } else if (status == GameFSMStatus.Over) {
+        } else if (ctx.status == GameFSMStatus.Over) {
             // 游戏结束
             Debug.Log("游戏结束");
         }

@@ -85,8 +85,18 @@ public static class GameBusiness {
         ModuleInput input = ctx.moduleInput;
         bool hasRole = ctx.roleRespository.TryGet(ctx.roleID, out RoleEntity role);
         if (!hasRole) {
-            Debug.Log("role ==null");
+            Debug.LogError("role ==null");
             return;
+        }
+        UIApp.Panel_HeartInfo_Updata(ctx.uiContext, role.hp);
+        // 游戏结束
+        if (role.hp <= 0) {
+            Debug.Log("1111");
+            ctx.status = GameFSMStatus.Over;
+            Debug.Log(
+                ctx.status);
+            GameBusiness.Exit(ctx);
+            UIApp.Panel_Over_Open(ctx.uiContext);
         }
 
         RoleController.Tick(ctx, role, input.moveAxis, dt);
@@ -122,17 +132,10 @@ public static class GameBusiness {
     public static void LateTick(GameContext ctx, float dt) {
         bool hasRole = ctx.roleRespository.TryGet(ctx.roleID, out RoleEntity role);
         if (!hasRole) {
-            Debug.Log("role ==null");
+            // Debug.LogError("role ==null");
             return;
         }
-        UIApp.Panel_HeartInfo_Updata(ctx.uiContext, role.hp);
-        // 游戏结束
-        if (role.hp <= 0) {
-            GameFSMStatus status = ctx.status;
-            status = GameFSMStatus.Over;
-            GameBusiness.Exit(ctx);
-            UIApp.Panel_Over_Open(ctx.uiContext);
-        }
+
     }
 
     static void CheckGround(RoleEntity role) {
