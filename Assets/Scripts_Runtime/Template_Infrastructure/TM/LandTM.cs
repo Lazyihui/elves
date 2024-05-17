@@ -15,5 +15,8 @@ public class LandTM : ScriptableObject {
 
     public Vector2 pos;
 
+    [Header("bool")]
+    public bool isEraser;
+
 
 }

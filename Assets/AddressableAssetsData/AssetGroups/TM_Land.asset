@@ -77,18 +77,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - TM_Land
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a1c859197ac92ac44baa2c08a761d24b
-    m_Address: TM_Land 10
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - TM_Land
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 503399fa293bb1747bbd36478d9a61a5
-    m_Address: TM_Land 11
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - TM_Land
-    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 193efb26beee23a40b4bac14b6435e47, type: 2}
   m_SchemaSet:

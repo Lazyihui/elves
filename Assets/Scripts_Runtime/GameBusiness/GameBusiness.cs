@@ -27,7 +27,7 @@ public static class GameBusiness {
         }
 
         // land
-        for (int i = 0; i < 9; i++) {
+        for (int i = 0; i < 10; i++) {
             LandDomain.Spawn(ctx, 0, i);
         }
 
@@ -108,6 +108,7 @@ public static class GameBusiness {
         RoleDomain.OverLapStab(ctx, role);
         RoleDomain.OverLapMst(ctx, role);
         RoleDomain.OverLapGold(ctx, role);
+        RoleDomain.OverLapLand(ctx, role);
 
         // ruler
         int rulerLen = ctx.rulerRepository.TakeAll(out RulerEntity[] rulers);

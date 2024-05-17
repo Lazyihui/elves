@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6226824032473870177}
   - component: {fileID: 6908336261253669540}
-  - component: {fileID: 2208396568684163013}
   - component: {fileID: 5547974650069920976}
+  - component: {fileID: 8884179338806513208}
+  - component: {fileID: 2208396568684163013}
   m_Layer: 0
   m_Name: Entity_Land
   m_TagString: Land
@@ -88,20 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2208396568684163013
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7479312119310618426}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72a3f10b8f6cf754287b0894c8741ece, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  typeID: 0
-  id: 0
 --- !u!61 &5547974650069920976
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -148,3 +135,46 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.0709143, y: 0.62909144}
   m_EdgeRadius: 0
+--- !u!50 &8884179338806513208
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7479312119310618426}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &2208396568684163013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7479312119310618426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72a3f10b8f6cf754287b0894c8741ece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8884179338806513208}
+  typeID: 0
+  id: 0
+  isEraser: 0

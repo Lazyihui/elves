@@ -3,9 +3,13 @@ using UnityEngine;
 
 public class LandEntity : MonoBehaviour {
 
+    [SerializeField] public Rigidbody2D rb;
+
     public int typeID;
 
     public int id;
+
+    public bool isEraser;
 
     public LandEntity() {
 

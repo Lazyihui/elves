@@ -108,13 +108,30 @@ public static class RoleDomain {
                 if (gold.isWin) {
                     role.isWin = true;
                 }
-                if(gold.ishp){
+                if (gold.ishp) {
                     role.hp++;
                 }
                 return true;
             } else {
                 return false;
             }
+        });
+
+    }
+
+    public static void OverLapLand(GameContext ctx, RoleEntity role) {
+        LandEntity target = ctx.landRepository.Find((land) => {
+            float dirSqr = Vector2.SqrMagnitude(land.transform.position - role.transform.position);
+            
+            if (dirSqr < 1.0f) {
+                if (land.isEraser) {
+                    LandDomain.EraserFall(ctx, land);
+                }
+                return true;
+            } else {
+                return false;
+            }
+       
         });
 
     }
